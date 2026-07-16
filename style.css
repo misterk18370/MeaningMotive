@@ -4,6 +4,7 @@
   --line:#D9D9D2; --accent:#7C9E96; --rose:#C9A9A4;
 }
 *{box-sizing:border-box}
+img{max-width:100%;height:auto}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--paper);color:var(--ink);
   font:17px/1.68 Georgia,'Times New Roman',serif;}
@@ -54,4 +55,4 @@ footer.site nav a{color:var(--mid);margin:0 8px}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 
 /* front-page crest */
-.crest{display:block;margin:0 auto 30px;width:min(72%,380px);height:auto}
+.crest{display:block;margin:0 auto 30px;width:min(64%,340px);height:auto}
