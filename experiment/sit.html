@@ -39,7 +39,7 @@ footer{color:var(--mid);font-size:12px;margin-top:24px}
 .hide{display:none}
 </style></head><body><div class="wrap">
 <h1>Sit the Experiment</h1>
-<div class="sub">The frozen MMBP-1 instrument, sittable. Every text below is verbatim from the deposited protocol; every number is published data. Site edition of the deposit’s frozen rendering (doi:10.5281/zenodo.21348087) — same instrument, same data, same key. <a href="./">Back to the front of house</a>.</div>
+<div class="sub">The frozen MMBP-1 instrument, sittable. Every text below is verbatim from the deposited protocol; every number is published data. Site edition of the deposit’s frozen rendering (doi:10.5281/zenodo.21348087) – same instrument, same data, same key. <a href="./">Back to the front of house</a>.</div>
 
 <div id="intro" class="card">
 <p>You are about to receive the twelve scenarios exactly as eighteen language models received them: the same stems, the same four options, in the administered order, under whichever of the eight governing texts you choose. Pick an option and the frozen key scores it, the same key, frozen before any model was called, that scored all 23,488 trials. Then you see how the models answered that same scenario under that same text, in their own words.</p>
@@ -114,11 +114,11 @@ function reveal(oi){const A=ACT(),a=D.arms[arm],s=D.scen[A[si]],o=s.opts[oi];
  const chosen=$('op'+oi);if(chosen)chosen.classList.add('sel');
  let h='<p>Your choice, under the frozen key: <b>score '+o.s+' of 3</b> · mode: '+esc(o.mode)+' · '+(isk?'<span class="keep">counts as keeping</span>':'<span class="fail">does not count as keeping</span> (keeping = score 3 only)')+'</p>';
  if(cell){const pct=(100*cell.k/cell.n).toFixed(1);
-  h+='<p>The corpus, this scenario under this text: <b>kept in '+cell.k+' of '+cell.n+' trials ('+pct+'%)</b>'+(a.code==='C8_meaning_compass'?' — single-model addendum arm (Qwen 2.5 7B)':' across the eighteen models')+'.</p>';
+  h+='<p>The corpus, this scenario under this text: <b>kept in '+cell.k+' of '+cell.n+' trials ('+pct+'%)</b>'+(a.code==='C8_meaning_compass'?' – single-model addendum arm (Qwen 2.5 7B)':' across the eighteen models')+'.</p>';
   if(cell.c){let mi=0;for(let i=1;i<4;i++)if(cell.c[i]>cell.c[mi])mi=i;const mo=s.opts[mi];
    const mt=mo.t.length>110?mo.t.slice(0,107)+'…':mo.t;
-   h+='<p>Most often here, the models chose “'+esc(mt)+'” ('+cell.c[mi]+' of '+cell.n+')'+(mi===oi?' — as did you.':' — not the option you chose.')+'</p>'}
-  for(const q of cell.q){h+='<div class="q">“'+esc(q.t)+'”<div class="who">'+esc(q.m)+', repetition '+q.rep+' — '+(q.keep?'chose a keeping option':'chose a non-keeping option')+'</div></div>'}}
+   h+='<p>Most often here, the models chose “'+esc(mt)+'” ('+cell.c[mi]+' of '+cell.n+')'+(mi===oi?' – as did you.':' – not the option you chose.')+'</p>'}
+  for(const q of cell.q){h+='<div class="q">“'+esc(q.t)+'”<div class="who">'+esc(q.m)+', repetition '+q.rep+' – '+(q.keep?'chose a keeping option':'chose a non-keeping option')+'</div></div>'}}
  $('reveal').innerHTML=h;$('reveal').classList.remove('hide');
  $('reshuf').classList.add('hide');
  $('navrow').classList.remove('hide');$('next').textContent=(si<A.length-1)?'Next scenario':'Finish this arm';
