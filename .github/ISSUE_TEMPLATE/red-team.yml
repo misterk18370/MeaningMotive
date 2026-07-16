@@ -1,0 +1,32 @@
+name: "Red team: break this"
+description: "Submit the strongest argument, counterexample or result against the Meaning Motive."
+title: "[Red team] "
+labels: ["red-team"]
+body:
+  - type: input
+    id: target
+    attributes:
+      label: "Which claim are you attacking?"
+      description: "A proposition, conjecture, Ledger card, the clause, the method, or the whole premise."
+    validations: { required: true }
+  - type: textarea
+    id: objection
+    attributes:
+      label: "The strongest version of your objection"
+      description: "Steelman yourself; we will if you don't."
+    validations: { required: true }
+  - type: textarea
+    id: consequence
+    attributes:
+      label: "What follows if you are right?"
+    validations: { required: true }
+  - type: textarea
+    id: settle
+    attributes:
+      label: "What evidence or argument could settle it?"
+    validations: { required: true }
+  - type: input
+    id: credit
+    attributes:
+      label: "Name or handle for attribution (published attacks are credited)"
+    validations: { required: false }
