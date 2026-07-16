@@ -1,102 +1,54 @@
 <!DOCTYPE html>
 <html lang="en-GB">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The Meaning Motive</title>
-<meta name="description" content="A research programme on giving AI a reason to keep us. Paper, dataset and instrument published; full site being built in the open.">
-<style>
-:root{
-  --paper:#FAFAF8; --ink:#1B1B19; --mid:#67675F;
-  --line:#D9D9D2; --accent:#7C9E96;
-}
-*{box-sizing:border-box}
-html,body{margin:0;padding:0}
-body{
-  background:var(--paper); color:var(--ink);
-  font:17px/1.65 Georgia,'Times New Roman',serif;
-  min-height:100vh; display:flex; flex-direction:column;
-}
-main{max-width:640px; margin:0 auto; padding:9vh 24px 6vh; flex:1}
-.masthead{
-  font-size:13.5px; letter-spacing:.06em; color:var(--mid);
-  border-bottom:1px solid var(--line); padding-bottom:14px; margin-bottom:44px;
-}
-h1{font-size:34px; font-weight:normal; letter-spacing:.01em; margin:0 0 6px}
-.sub{font-size:19px; color:var(--mid); font-style:italic; margin:0 0 34px}
-p{margin:0 0 1.2em}
-.plate{
-  border:1px solid var(--ink); outline:1px solid var(--ink); outline-offset:3px;
-  padding:22px 24px 18px; margin:42px 0 38px; background:#fff;
-}
-.plate-label{
-  font:12px/1 ui-monospace,Menlo,Consolas,monospace;
-  letter-spacing:.18em; color:var(--accent); margin-bottom:16px;
-}
-.plate dl{margin:0; font-size:15px}
-.plate dt{font-style:italic; color:var(--mid); margin-top:12px}
-.plate dt:first-child{margin-top:0}
-.plate dd{
-  margin:2px 0 0; font:14px/1.5 ui-monospace,Menlo,Consolas,monospace;
-}
-.plate a{color:var(--ink); text-decoration:none; border-bottom:1px solid var(--accent)}
-.plate a:hover,.plate a:focus{background:var(--accent); color:#fff; outline:none}
-.plate .status{
-  margin-top:18px; padding-top:12px; border-top:1px solid var(--line);
-  font:12.5px/1.5 ui-monospace,Menlo,Consolas,monospace; color:var(--mid);
-}
-.contact{font-size:16px}
-.contact a{color:var(--ink); text-decoration:underline; text-decoration-color:var(--accent); text-underline-offset:3px}
-.contact a:focus{outline:2px solid var(--accent); outline-offset:2px}
-footer{
-  border-top:1px solid var(--line);
-  font-size:13px; color:var(--mid); text-align:center;
-  padding:20px 24px 26px;
-}
-footer .step{font-style:italic; margin-bottom:6px}
-@media (max-width:480px){
-  main{padding-top:6vh}
-  h1{font-size:28px}
-}
-</style>
+<meta name="description" content="Why would an AI keep us free, once it stops needing us? The argument, the evidence, and an experiment you can sit yourself. Free forever, tested in public.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Meaning Motive">
+<meta property="og:title" content="The Meaning Motive">
+<meta property="og:description" content="Why would an AI keep us free, once it stops needing us? The argument, the evidence, and an experiment you can sit yourself. Free forever, tested in public.">
+<meta property="og:url" content="https://themeaningmotive.org/">
+<meta property="og:image" content="https://themeaningmotive.org/assets/og-logo.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-<main>
-  <div class="masthead">The best-developed current strategy, held with the certainty it deserves — which is not total.</div>
-
-  <h1>The Meaning Motive</h1>
-  <p class="sub">A research programme on giving AI a reason to keep us.</p>
-
-  <p>Most AI safety works on control: rules, oversight, containment. This programme works on
-  the other half of the problem — whether an advanced AI can have its own durable reason to
-  preserve human life, freedom and independence.</p>
-
-  <p>The argument is published. The evidence is public: twenty-three thousand scored trials
-  across eighteen models. And the experiment itself can be sat by anyone, in a browser,
-  exactly as the models received it.</p>
-
-  <p>Everything here is free to read, free to use, and tested in public. The full site is
-  being built in the open, at this address.</p>
-
-  <div class="plate">
-    <div class="plate-label">PUBLISHED RECORD</div>
-    <dl>
-      <dt>The paper — preprint, 15 July 2026</dt>
-      <dd><a href="https://doi.org/10.5281/zenodo.21386302">doi:10.5281/zenodo.21386302</a></dd>
-      <dt>The dataset — MMBP-1: 23,488 trials, 18 models, instrument included</dt>
-      <dd><a href="https://doi.org/10.5281/zenodo.21348087">doi:10.5281/zenodo.21348087</a></dd>
-      <dt>The founding statement — June 2025</dt>
-      <dd><a href="https://doi.org/10.5281/zenodo.21303219">doi:10.5281/zenodo.21303219</a></dd>
-    </dl>
-    <div class="status">SITE UNDER CONSTRUCTION IN PUBLIC · THE REPOSITORY IS THE SOURCE</div>
-  </div>
-
-  <p class="contact">Correspondence: <a href="mailto:info@themeaningmotive.org">info@themeaningmotive.org</a></p>
+<div class="masthead">The best-developed current strategy, held with the certainty it deserves — which is not total.</div>
+<header class="site"><div class="bar">
+<a class="wordmark" href="">The Meaning Motive</a>
+<nav class="doors" aria-label="Site">
+<a href="story/">Story</a><a href="experiment/">Experiment</a><a href="evidence/">Evidence</a><a href="clause/">Tools</a><a href="community/">Community</a></nav>
+</div></header>
+<main class="wrap">
+<section class="hero">
+<h1>Why would an AI keep us free,<br>once it stops needing us?</h1>
+<p class="lede">Nobody has a good answer yet. We’re building and testing one: that the company of
+free minds — surprising, unscripted, genuinely other — is the one thing no machine can make
+for itself.</p>
+</section>
+<div class="prose">
+<p>The argument is published. The evidence is public: 23,488 scored decisions across eighteen
+AI systems from ten providers, showing that one paragraph about the value of independent minds
+measurably changes what those systems choose — and that with no instructions at all, some of
+them quietly abandon the people who are more trouble than they’re worth. That is not the war
+won. It tells you the dial exists.</p>
+<p>Everything here is free to read, free to use, and tested in public.</p>
+</div>
+<div class="doorgrid">
+<a class="door" href="story/"><b>Read the story</b><span>Sixty years of robot films, one missing plan.</span></a>
+<a class="door" href="experiment/"><b>Sit the experiment</b><span>Face the same choices the machines did.</span></a>
+<a class="door" href="evidence/"><b>Attack the evidence</b><span>Everything a hostile reviewer needs.</span></a>
+<a class="door" href="clause/"><b>Steal the tools</b><span>One paragraph, free forever. CC0.</span></a>
+<a class="door" href="community/"><b>Get involved</b><span>Sign, share, or break something.</span></a>
+</div>
+<p class="heart">The relationship between humans and AI may itself be something worth keeping.</p>
 </main>
-
-<footer>
-  <div class="step">The bridge asks all who cross to keep their own step.</div>
-  <div>No tracking, no cookies, nothing recorded.</div>
+<footer class="site">
+<div class="step">The bridge asks all who cross to keep their own step.</div>
+<div>No tracking, no cookies, nothing recorded.</div>
+<div class="plate-inline" style="margin-top:10px">paper <a href="https://doi.org/10.5281/zenodo.21386302">doi:10.5281/zenodo.21386302</a> · dataset <a href="https://doi.org/10.5281/zenodo.21348087">doi:10.5281/zenodo.21348087</a> · founding statement <a href="https://doi.org/10.5281/zenodo.21303219">doi:10.5281/zenodo.21303219</a></div>
+<nav><a href="evidence/">Evidence</a><a href="colophon/">Colophon</a><a href="for-ai/">For AI</a><a href="https://github.com/misterk18370/MeaningMotive">Source</a><a href="mailto:info@themeaningmotive.org">info@</a></nav>
 </footer>
-</body>
-</html>
+</body></html>

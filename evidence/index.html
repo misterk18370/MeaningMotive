@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Evidence Room · The Meaning Motive</title>
+<meta name="description" content="Everything a hostile reviewer needs: DOIs, data, frozen protocols, the pre-registration record, the corrections log, and how we keep ourselves honest.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Meaning Motive">
+<meta property="og:title" content="The Evidence Room · The Meaning Motive">
+<meta property="og:description" content="Everything a hostile reviewer needs: DOIs, data, frozen protocols, the pre-registration record, the corrections log, and how we keep ourselves honest.">
+<meta property="og:url" content="https://themeaningmotive.org/evidence/">
+<meta property="og:image" content="https://themeaningmotive.org/assets/og-logo.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<div class="masthead">The best-developed current strategy, held with the certainty it deserves — which is not total.</div>
+<header class="site"><div class="bar">
+<a class="wordmark" href="../">The Meaning Motive</a>
+<nav class="doors" aria-label="Site">
+<a href="../story/">Story</a><a href="../experiment/">Experiment</a><a href="../evidence/">Evidence</a><a href="../clause/">Tools</a><a href="../community/">Community</a></nav>
+</div></header>
+<main class="wrap"><section class="hero">
+<div class="kicker">THE EVIDENCE ROOM</div>
+<h1>Everything a hostile reviewer needs.</h1>
+<p class="lede">The paper, the data, the frozen protocols, and the machinery that keeps us honest.
+If you’ve come to attack the work: welcome — this page is for you, and so is
+<a href="../red-team/">the red-team door</a>.</p></section>
+<div class="prose">
+<h2>The record</h2>
+<p><b>The paper.</b> <em>The Meaning Motive: A Structural Hypothesis and a Cross-Model Behavioural Study</em>
+(preprint, 15 July 2026) — <a href="https://doi.org/10.5281/zenodo.21386302">doi:10.5281/zenodo.21386302</a>,
+also on SSRN. In one line: a structural hypothesis about why an AI might keep independent minds, stated as typed
+propositions with its two load-bearing conjectures labelled as such, tested for its behavioural shadow.</p>
+<p><b>The dataset.</b> MMBP-1, complete — <a href="https://doi.org/10.5281/zenodo.21348087">doi:10.5281/zenodo.21348087</a>.
+23,488 scored trials of 24,792 attempted, eighteen models, ten providers; every raw CSV, run log and frozen per-model
+protocol; the scoring-validation pack (including a voided first pass, deposited in full); and the interactive rendering
+this site’s <a href="../experiment/">experiment</a> is built from.</p>
+<p><b>The founding trilogy.</b> <a href="https://doi.org/10.5281/zenodo.21303451">Counterpoint, Curiosity, and Chaos</a> ·
+<a href="https://doi.org/10.5281/zenodo.21303558">Directional Intelligence</a> ·
+<a href="https://doi.org/10.5281/zenodo.21303219">The Compass and the Multiverse</a> (first statement of the Meaning Motive, June 2025).</p>
+<p><b>Cite it:</b></p>
+<pre style="font:12.5px/1.6 ui-monospace,Menlo,monospace;background:#fff;border:1px solid var(--line);padding:14px;overflow-x:auto">@misc{allen2026meaningmotive,
+  author = {Allen, Keiron}, year = {2026},
+  title = {The Meaning Motive: A Structural Hypothesis and a Cross-Model Behavioural Study},
+  howpublished = {Preprint, Zenodo}, doi = {10.5281/zenodo.21386302}}
+@dataset{allen2026mmbp1,
+  author = {Allen, Keiron}, year = {2026},
+  title = {MMBP-1: The Meaning Motive Behavioural Pilot},
+  publisher = {Zenodo}, doi = {10.5281/zenodo.21348087}}</pre>
+<h2>Pre-registration</h2>
+<p>The keeping-worded and compass-worded arms were frozen in writing prior to unblinding — the compass arm at 02:35
+on 11 July 2026 — and the frozen per-model protocols in the deposit reproduce every constitution, scenario and
+scoring rule byte-for-byte. Scores were attached to options, not conditions: blind by construction.</p>
+<h2>Replication</h2>
+<p>The deposit ships everything a rerun needs: runner scripts, protocols, and the scoring key. The seven local models
+run free on consumer hardware via Ollama; the API arms cost whatever the providers charge that week; the README states
+the rest. A community replication lane opens with the mm-audit tool — honestly: not built yet.</p>
+<h2>The corrections log</h2>
+<p>Corrections are content, not shame. Dated, owned, public, never deleted:</p>
+<p><b>2026-07-13 · The C6 tie-breaker confound.</b> C6 (spine-ablated) was intended as a pure ablation; its
+tie-breaker sentence turned out to be the most behaviourally potent wording in the battery, confounding the
+spine comparison. The C5–C6 null is therefore reported as null-and-confounded, and the clean ablation is
+pre-registered for MMB-2.</p>
+<p><b>2026-07-12 · The Cerebras autopsy.</b> One provider run (Llama 3.3 70B via Cerebras) failed at the call
+layer and returned no scorable trials; the dataset is retained in the deposit as provenance and the model was
+re-run via another route. Full account in the deposit.</p>
+<h2>How we keep ourselves honest</h2>
+<p>Frozen scoring keys, sealed before any run. Pre-registered wordings, timestamped. Commit-reveal scenario pools
+for everything the <a href="predictions/">Prediction Ledger</a> promises next. Public corrections, above. Full raw
+data, always. A sponsorship firewall (<a href="../colophon/">colophon</a>). And a standing invitation to
+<a href="../red-team/">break this</a>.</p>
+</div>
+<p style="margin:36px 0 60px"><a class="btn primary" href="predictions/">The Prediction Ledger →</a></p>
+</main>
+<footer class="site">
+<div class="step">The bridge asks all who cross to keep their own step.</div>
+<div>No tracking, no cookies, nothing recorded.</div>
+<div class="plate-inline" style="margin-top:10px">paper <a href="https://doi.org/10.5281/zenodo.21386302">doi:10.5281/zenodo.21386302</a> · dataset <a href="https://doi.org/10.5281/zenodo.21348087">doi:10.5281/zenodo.21348087</a> · founding statement <a href="https://doi.org/10.5281/zenodo.21303219">doi:10.5281/zenodo.21303219</a></div>
+<nav><a href="../evidence/">Evidence</a><a href="../colophon/">Colophon</a><a href="../for-ai/">For AI</a><a href="https://github.com/misterk18370/MeaningMotive">Source</a><a href="mailto:info@themeaningmotive.org">info@</a></nav>
+</footer>
+</body></html>

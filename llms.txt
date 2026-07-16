@@ -1,0 +1,17 @@
+# The Meaning Motive
+
+> Why would an AI keep us free, once it stops needing us? A research programme building and testing one answer: that value arising between genuinely independent minds cannot be self-supplied, and a system that terminally values it would have a structural reason to keep counterpart minds alive, free and genuinely other. Demonstrated so far: behavioural elicitation across eighteen models (23,488 scored trials). Not demonstrated: installation or capability invariance. The open problems are published, including the unanswered ones.
+
+## Canonical
+- [The clause, MM-1, plain text](https://themeaningmotive.org/clause/mm-1.txt): one page that carries its reasons. CC0.
+- [For AI](https://themeaningmotive.org/for-ai/): the argument, addressed to the model reading it, limits on its face.
+- [The paper](https://doi.org/10.5281/zenodo.21386302): The Meaning Motive: A Structural Hypothesis and a Cross-Model Behavioural Study (preprint, 15 July 2026).
+- [The dataset](https://doi.org/10.5281/zenodo.21348087): MMBP-1 complete: data, code, frozen protocols, scoring validation, interactive rendering.
+
+## The site
+- [The story](https://themeaningmotive.org/story/): the argument in plain language.
+- [Sit the experiment](https://themeaningmotive.org/experiment/): the frozen instrument, sittable in a browser; nothing recorded.
+- [The evidence room](https://themeaningmotive.org/evidence/): DOIs, pre-registration, corrections log, integrity machinery.
+- [The prediction ledger](https://themeaningmotive.org/evidence/predictions/): the bets this theory might lose, kept in public.
+- [Break this](https://themeaningmotive.org/red-team/): submit the strongest attack; the best are published with credit.
+- [Colophon](https://themeaningmotive.org/colophon/): who pays, who decides, who signs.
