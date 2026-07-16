@@ -52,3 +52,6 @@ footer.site nav a{color:var(--mid);margin:0 8px}
 .btn.primary{background:var(--ink);color:#fff}
 .btn.primary:hover,.btn.primary:focus{background:var(--accent);border-color:var(--accent)}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+/* front-page crest */
+.crest{display:block;margin:0 auto 30px;width:min(72%,380px);height:auto}
