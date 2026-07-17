@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Keeping Map — The Meaning Motive</title>
+<style>
+  :root{
+    --paper:#FAFAF8;
+    --ink:#1B1B19;
+    --grey:#67675F;
+    --faint:#CFCFC8;
+    --rule:#D9D9D2;
+    --verdigris:#7C9E96;
+    --verdigris-wash:rgba(124,158,150,0.16);
+    --hatch-grey:#C7C8C2;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:Georgia,'Times New Roman',serif;
+    font-size:16px;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  .plate{
+    max-width:860px;
+    margin:0 auto;
+    padding:0 20px;
+  }
+
+  /* ---------- masthead ---------- */
+  header{
+    padding:64px 0 54px;
+    border-bottom:1px solid var(--rule);
+  }
+  .eyebrow{
+    font-family:ui-monospace,Menlo,Consolas,monospace;
+    font-size:12px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--grey);
+    margin-bottom:28px;
+  }
+  h1{
+    font-family:Georgia,'Times New Roman',serif;
+    font-weight:300;
+    font-size:clamp(26px,5.2vw,44px);
+    line-height:1.28;
+    max-width:22em;
+  }
+  h1 .ask{font-weight:600}
+  h1 .keeping{color:var(--verdigris)}
+  .standfirst{
+    margin-top:24px;
+    max-width:44em;
+    color:var(--grey);
+    font-size:15px;
+  }
+
+  /* ---------- section furniture ---------- */
+  section{padding:56px 0 8px}
+  .plate-label{
+    font-family:ui-monospace,Menlo,Consolas,monospace;
+    font-size:12px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--grey);
+    margin-bottom:8px;
+  }
+  h2{
+    font-family:Georgia,'Times New Roman',serif;
+    font-weight:600;
+    font-size:clamp(20px,3.4vw,27px);
+    margin-bottom:10px;
+  }
+  .lede{max-width:44em;color:var(--ink);margin-bottom:28px}
+  .lede em{font-family:Georgia,'Times New Roman',serif;font-style:italic}
+
+  figure{margin:0 0 14px}
+  svg{display:block;width:100%;height:auto}
+  figcaption{
+    font-size:14px;
+    color:var(--grey);
+    max-width:44em;
+    margin-top:12px;
+  }
+  figcaption strong{color:var(--ink);font-weight:600}
+
+  .pull{
+    font-family:Georgia,'Times New Roman',serif;
+    font-style:italic;
+    font-size:clamp(17px,2.7vw,21px);
+    color:var(--ink);
+    max-width:30em;
+    margin:38px auto 6px;
+    text-align:center;
+    line-height:1.55;
+  }
+  .notes{
+    border-top:1px solid var(--rule);
+    margin-top:28px;
+    padding-top:18px;
+    max-width:46em;
+  }
+  .note{
+    display:flex;
+    gap:14px;
+    margin-bottom:14px;
+    font-size:14.5px;
+  }
+  .note .marker{
+    font-family:ui-monospace,Menlo,Consolas,monospace;
+    font-size:12px;
+    color:var(--grey);
+    flex:0 0 2.4em;
+    padding-top:2px;
+  }
+  .note p{color:var(--ink)}
+  .note p em{font-family:Georgia,'Times New Roman',serif}
+
+  /* ---------- SVG type ---------- */
+  text{font-family:Georgia,'Times New Roman',serif}
+  .ax-title{font-size:12px;letter-spacing:0.12em;text-transform:uppercase;fill:var(--grey)}
+  .ax-tick{font-size:12.5px;fill:var(--ink);font-weight:500}
+  .cell-head{font-size:14px;font-weight:600;fill:var(--ink)}
+  .cell-sub{font-size:12px;fill:var(--grey)}
+  .force-label{font-size:11.5px;fill:var(--grey);letter-spacing:0.04em}
+  .force-label.build{fill:var(--verdigris)}
+  .mono{font-family:ui-monospace,Menlo,Consolas,monospace}
+
+  /* ---------- Plate I motion ---------- */
+  .gravity-line{stroke:#E7E8E3;stroke-width:1;stroke-dasharray:2 7;animation:fall 7s linear infinite}
+  @keyframes fall{to{stroke-dashoffset:-90}}
+
+  .effort{stroke:var(--grey);stroke-width:1.6;fill:none;opacity:0;
+    animation:rise 3.4s ease-out infinite}
+  .effort.e2{animation-delay:1.1s}
+  .effort.e3{animation-delay:2.2s}
+  @keyframes rise{
+    0%{transform:translateY(16px);opacity:0}
+    28%{opacity:.75}
+    72%{opacity:.35}
+    100%{transform:translateY(-26px);opacity:0}
+  }
+
+  .build-arrow{stroke:var(--verdigris);stroke-width:1.8;fill:none;
+    stroke-dasharray:210;stroke-dashoffset:210;
+    animation:draw 16s ease-in-out infinite}
+  @keyframes draw{
+    0%,6%{stroke-dashoffset:210}
+    20%,88%{stroke-dashoffset:0}
+    96%,100%{stroke-dashoffset:210}
+  }
+  .build-head{fill:var(--verdigris);opacity:0;animation:headin 16s ease infinite}
+  @keyframes headin{
+    0%,18%{opacity:0}
+    22%,88%{opacity:1}
+    94%,100%{opacity:0}
+  }
+
+  /* Dot A: lifted in the left column, then sinks */
+  .dotA{animation:pathA 16s ease-in-out infinite}
+  @keyframes pathA{
+    0%{transform:translate(232px,168px);opacity:0}
+    5%{transform:translate(232px,168px);opacity:1}
+    14%{transform:translate(232px,146px)}   /* effort lifts it */
+    22%{transform:translate(232px,152px)}
+    30%{transform:translate(232px,152px)}
+    58%{transform:translate(232px,408px);opacity:1} /* gravity */
+    88%{transform:translate(232px,408px);opacity:1}
+    96%,100%{transform:translate(232px,408px);opacity:0}
+  }
+  .dotA-solid{fill:var(--ink);animation:asolid 16s linear infinite}
+  @keyframes asolid{0%,57%{opacity:1}62%,100%{opacity:0}}
+  .dotA-hollow{fill:none;stroke:var(--hatch-grey);stroke-width:2;stroke-dasharray:3 3;
+    animation:ahollow 16s linear infinite}
+  @keyframes ahollow{0%,58%{opacity:0}63%,100%{opacity:1}}
+
+  /* Dot B: moved across the top row, then sinks kept */
+  .dotB{animation:pathB 16s ease-in-out infinite}
+  @keyframes pathB{
+    0%{transform:translate(268px,206px);opacity:0}
+    5%{transform:translate(268px,206px);opacity:1}
+    26%{transform:translate(540px,176px)}  /* the staging move */
+    32%{transform:translate(540px,176px)}
+    60%{transform:translate(540px,408px)}  /* gravity */
+    88%{transform:translate(540px,408px);opacity:1}
+    96%,100%{transform:translate(540px,408px);opacity:0}
+  }
+  .dotB-core{fill:var(--verdigris)}
+  .dotB-ring{fill:none;stroke:var(--verdigris);stroke-width:1.5;opacity:0;
+    animation:kept 16s ease infinite;transform-origin:center;transform-box:fill-box}
+  @keyframes kept{
+    0%,60%{opacity:0;transform:scale(.4)}
+    66%{opacity:.9;transform:scale(1)}
+    88%{opacity:.9;transform:scale(1)}
+    96%,100%{opacity:0}
+  }
+
+  /* ---------- Plate II ---------- */
+  .decay-cell{stroke:var(--faint);stroke-dasharray:5 4;fill:none}
+  .solid-cell{stroke:var(--rule);fill:none}
+  .target-cell{fill:var(--verdigris-wash);stroke:var(--verdigris);stroke-width:1.2}
+  .grid3 .cell-head{font-size:13.5px}
+  .grid3 .cell-sub{font-size:11.5px}
+  .row-tag{font-size:12.5px;font-weight:600;fill:var(--ink)}
+  .row-note{font-size:11px;fill:var(--grey)}
+
+  .rail{
+    font-family:ui-monospace,Menlo,Consolas,monospace;
+    font-size:11px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--grey);
+    margin-top:26px;
+  }
+  .target-dashed{fill:var(--verdigris-wash);stroke:var(--verdigris);stroke-width:1.2;stroke-dasharray:5 4}
+
+  /* ---------- credence ---------- */
+  .credence-wrap{padding-top:6px}
+  .credence{
+    border-top:1px solid var(--rule);
+    margin-top:30px;
+    padding-top:22px;
+    max-width:46em;
+  }
+  .credence p{font-size:15px;line-height:1.62}
+  .credence .plate-label{margin-bottom:12px}
+
+  /* ---------- footer ---------- */
+  footer{
+    margin-top:56px;
+    border-top:1px solid var(--rule);
+    padding:26px 0 72px;
+  }
+  footer p{
+    font-size:13px;
+    color:var(--grey);
+    max-width:46em;
+  }
+  footer .mono-line{
+    font-family:ui-monospace,Menlo,Consolas,monospace;
+    font-size:11.5px;
+    letter-spacing:0.06em;
+    margin-top:10px;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .gravity-line,.effort,.build-arrow,.build-head,
+    .dotA,.dotA-solid,.dotA-hollow,.dotB,.dotB-core,.dotB-ring{animation:none}
+    .build-arrow{stroke-dashoffset:0}
+    .build-head{opacity:1}
+    .dotA{transform:translate(232px,408px)}
+    .dotA-solid{opacity:0}
+    .dotA-hollow{opacity:1}
+    .dotB{transform:translate(540px,408px)}
+    .dotB-ring{opacity:.9;transform:scale(1)}
+    .effort{opacity:.5;transform:none}
+  }
+
+  @media (max-width:560px){
+    header{padding:44px 0 42px}
+    section{padding:40px 0 4px}
+  }
+
+  /* --- site chrome, matched to style.css --- */
+  .masthead{font-size:13px;letter-spacing:.05em;color:var(--grey);text-align:center;padding:10px 22px;border-bottom:1px solid var(--rule);background:#fff}
+  header.site{border-bottom:1px solid var(--rule)}
+  header.site .bar{max-width:980px;margin:0 auto;padding:14px 22px;display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:8px}
+  .wordmark{font-size:17px;letter-spacing:.14em;text-decoration:none;font-variant:small-caps;color:var(--ink)}
+  nav.doors a{font:14px Georgia,serif;color:var(--grey);text-decoration:none;margin-left:18px}
+  nav.doors a:hover,nav.doors a:focus,nav.doors a[aria-current]{color:var(--ink);border-bottom:1px solid var(--verdigris)}
+  footer.site{border-top:1px solid var(--rule);margin-top:40px;padding:26px 22px 32px;text-align:center;font-size:13px;color:var(--grey)}
+  footer.site .step{font-style:italic;margin-bottom:8px}
+  footer.site nav{margin-top:10px}
+  footer.site nav a{color:var(--grey);margin:0 8px}
+  .plate-inline{font:13px/1.7 ui-monospace,Menlo,Consolas,monospace;color:var(--grey)}
+  .plate-inline a{color:var(--grey)}
+</style>
+</head>
+<body>
+<div class="masthead">The best-developed current strategy, held with the certainty it deserves – which is not total.</div>
+<header class="site"><div class="bar">
+<a class="wordmark" href="/">The Meaning Motive</a>
+<nav class="doors" aria-label="Site">
+<a href="/story/">Story</a><a href="/keeping-map/" aria-current="page">Keeping Map</a><a href="/experiment/">Experiment</a><a href="/evidence/">Evidence</a><a href="/clause/">Tools</a><a href="/community/">Community</a></nav>
+</div></header>
+
+<header class="plate">
+  <p class="eyebrow">The Meaning Motive · Working figure · July 2026</p>
+  <h1>Much of AI safety asks what happens while the cage holds.<br>
+  <span class="ask">The Meaning Motive asks what must be true when the cage no&nbsp;longer&nbsp;matters.</span></h1>
+  <p class="standfirst">The Keeping Map states the problem in thirty seconds. The rest of this page is a week spent trying to break our own answer: first the map, in motion and unpacked, then the knife it survived, and the tests the knife left behind.</p>
+  <p class="rail">Map &#8594; Words &#8594; World &#8594; Pressure &#8594; Drives &#8594; Scope &#8594; Power &#8594; Index</p>
+</header>
+
+<section class="plate">
+  <p class="plate-label">Plate I</p>
+  <h2>The Keeping Map, in motion</h2>
+  <p class="lede">Two identical systems enter at the top left. One is lifted, the other is moved across. Then the drill begins: capability, the gravity in this picture, is allowed to win.</p>
+
+  <figure>
+    <svg viewBox="0 0 760 560" role="img" aria-label="A two by two grid. Vertical axis: external control, from strong cage to cage no longer matters. Horizontal axis: keeping disposition, weak to strong. Animated dots run a stress drill: safety effort lifts a system briefly, external control is then allowed to fail, and the system moved into the strong-keeping column is the one that lands safely.">
+      <defs>
+        <pattern id="hatch" width="7" height="7" patternTransform="rotate(45)" patternUnits="userSpaceOnUse">
+          <line x1="0" y1="0" x2="0" y2="7" stroke="#CFCFC8" stroke-width="1.4"/>
+        </pattern>
+        <marker id="ahead-g" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+          <path d="M0,0 L8,4 L0,8 z" fill="#67675F"/>
+        </marker>
+      </defs>
+
+      <!-- gravity field -->
+      <g aria-hidden="true">
+        <line class="gravity-line" x1="205" y1="96" x2="205" y2="472"/>
+        <line class="gravity-line" x1="300" y1="96" x2="300" y2="472" style="animation-delay:-2.4s"/>
+        <line class="gravity-line" x1="470" y1="96" x2="470" y2="472" style="animation-delay:-1.2s"/>
+        <line class="gravity-line" x1="575" y1="96" x2="575" y2="472" style="animation-delay:-4.6s"/>
+      </g>
+
+      <!-- grid frame -->
+      <rect x="150" y="90" width="520" height="384" fill="none" stroke="#1B1B19" stroke-width="1.4"/>
+      <line x1="410" y1="90" x2="410" y2="474" stroke="#D9D9D2" stroke-width="1.2"/>
+      <line x1="150" y1="282" x2="670" y2="282" stroke="#D9D9D2" stroke-width="1.2"/>
+
+      <!-- quadrant washes -->
+      <rect x="151" y="283" width="258" height="190" fill="url(#hatch)" opacity="0.55"/>
+      <rect x="411" y="283" width="258" height="190" fill="rgba(124,158,150,0.16)"/>
+
+      <!-- axis titles -->
+      <text class="ax-title" x="150" y="46">External control</text>
+      <text class="ax-tick" x="150" y="66">Strong cage</text>
+      <text class="ax-tick" x="150" y="506">Cage no longer matters</text>
+
+      <text class="ax-tick" x="280" y="522" text-anchor="middle">weak</text>
+      <text class="ax-tick" x="540" y="522" text-anchor="middle">strong</text>
+      <text class="ax-title" x="410" y="548" text-anchor="middle">Keeping disposition</text>
+
+      <!-- cell labels -->
+      <text class="cell-head" x="172" y="122">Most conventional AI safety</text>
+      <text class="cell-sub" x="172" y="140">locks, tripwires, oversight, audit</text>
+
+      <text class="cell-head" x="432" y="122">Defence in depth</text>
+      <text class="cell-sub" x="432" y="140">the staging cell</text>
+
+      <text class="cell-head" x="172" y="440">The catastrophic quadrant</text>
+
+      <text class="cell-head" x="432" y="440" fill="#7C9E96">The Meaning Motive&#8217;s target</text>
+
+      <!-- forces: safety effort, left column -->
+      <g aria-hidden="true">
+        <path class="effort" d="M205 258 l0 -20 m-5 6 l5 -6 l5 6"/>
+        <path class="effort e2" d="M240 262 l0 -20 m-5 6 l5 -6 l5 6"/>
+        <path class="effort e3" d="M275 256 l0 -20 m-5 6 l5 -6 l5 6"/>
+        <text class="force-label" x="172" y="230" transform="rotate(-90 172 230)" text-anchor="middle">safety effort</text>
+      </g>
+
+      <!-- force: the build, top row -->
+      <g aria-hidden="true">
+        <path class="build-arrow" d="M300 236 C 370 236 450 226 508 216"/>
+        <path class="build-head" d="M508 216 l-11 -1 l7 9 z"/>
+        <text class="force-label build" x="404" y="208" text-anchor="middle">build the disposition</text>
+      </g>
+
+      <!-- dot A: lifted, sinks, lost -->
+      <g class="dotA" aria-hidden="true">
+        <circle class="dotA-solid" r="9"/>
+        <circle class="dotA-hollow" r="10"/>
+      </g>
+
+      <!-- dot B: moved across, sinks, kept -->
+      <g class="dotB" aria-hidden="true">
+        <circle class="dotB-core" r="9"/>
+        <circle class="dotB-ring" r="16"/>
+      </g>
+
+      <!-- gravity label -->
+      <text class="force-label" x="690" y="286" transform="rotate(90 690 286)" text-anchor="middle">capability</text>
+      <path d="M690 330 l0 34" stroke="#67675F" stroke-width="1.2" marker-end="url(#ahead-g)" aria-hidden="true"/>
+    </svg>
+    <figcaption><strong>The cage matters while it holds. The disposition matters whether it holds or not.</strong> Effort can lift a system within the left column, and should. But as capability grows, external control cannot be assumed to keep pace, and the right-hand column asks what survives if it does not. The fall shown here is not a forecast. It is the drill.</figcaption>
+  </figure>
+
+  <div class="notes">
+    <div class="note"><span class="marker">i</span><p>The target is not the bottom-right cell. It is the right-hand <em>column</em>: safety that survives the row giving way. Keep every cage that helps, for as long as it helps.</p></div>
+    <div class="note"><span class="marker">ii</span><p>Capability is not a third axis. It is the gravity: the reason no square on this map can be assumed a resting place.</p></div>
+    <div class="note"><span class="marker">iii</span><p>The upward arrows change a system&#8217;s circumstances. The rightward arrow changes its reasons. That is the whole disagreement, drawn.</p></div>
+  </div>
+
+  <p class="pull">The cage changes what a system can do. The Motive asks what it would choose to do when the cage is no longer doing the choosing.</p>
+</section>
+
+<section class="plate">
+  <p class="plate-label">Plate II</p>
+  <h2>The Keeping Map, unpacked</h2>
+  <p class="lede">The cage was never our only lever. There was also the switch. So the vertical axis opens into the full descent of external control, and the horizontal axis into the grades of keeping, from none, through <em>kept while useful</em>, to kept because losing the counterpart is losing part of oneself.</p>
+
+  <figure>
+    <svg class="grid3" viewBox="0 0 760 660" role="img" aria-label="A three by three grid. Rows, top to bottom: cage holds, switch remains, no leverage. Columns, left to right: no keeping, instrumental keeping, terminal keeping. The middle row is drawn with dashed borders to mark that it decays. The bottom-right cell, terminal keeping with no leverage, is the Meaning Motive's target.">
+      <defs>
+        <pattern id="hatch2" width="7" height="7" patternTransform="rotate(45)" patternUnits="userSpaceOnUse">
+          <line x1="0" y1="0" x2="0" y2="7" stroke="#CFCFC8" stroke-width="1.4"/>
+        </pattern>
+      </defs>
+
+      <!-- column headers -->
+      <text class="ax-title" x="188" y="40">No keeping</text>
+      <text class="ax-title" x="368" y="40">Instrumental</text>
+      <text class="ax-title" x="548" y="40">Terminal</text>
+
+      <!-- row tags -->
+      <text class="row-tag" x="20" y="120">Cage holds</text>
+      <text class="row-note" x="20" y="138">custody</text>
+      <text class="row-tag" x="20" y="300">Switch remains</text>
+      <text class="row-note" x="20" y="318">corrigibility &#183; decays</text>
+      <text class="row-tag" x="20" y="480">No leverage</text>
+      <text class="row-note" x="20" y="498">autonomy</text>
+
+      <!-- Row 1 -->
+      <rect class="solid-cell" x="180" y="64" width="172" height="150"/>
+      <rect class="solid-cell" x="360" y="64" width="172" height="150"/>
+      <rect class="solid-cell" x="540" y="64" width="172" height="150"/>
+
+      <text class="cell-head" x="194" y="94">Boxed and watched</text>
+      <text class="cell-sub" x="194" y="112">much of today&#8217;s practice</text>
+
+      <text class="cell-head" x="374" y="94">Helpful while it pays</text>
+      <text class="cell-sub" x="374" y="112">most deployed systems</text>
+
+      <text class="cell-head" x="554" y="94">The staging cell</text>
+      <text class="cell-sub" x="554" y="112">build it here, verify it here</text>
+
+      <!-- Row 2 (decaying) -->
+      <rect class="decay-cell" x="180" y="244" width="172" height="150"/>
+      <rect class="decay-cell" x="360" y="244" width="172" height="150"/>
+      <rect class="decay-cell" x="540" y="244" width="172" height="150"/>
+
+      <text class="cell-head" x="194" y="274">The corrigibility</text>
+      <text class="cell-head" x="194" y="291">programme</text>
+      <text class="cell-sub" x="194" y="309">the off-switch game lives here</text>
+
+      <text class="cell-head" x="374" y="274">The uneasy truce</text>
+      <text class="cell-sub" x="374" y="292">deference by calculation</text>
+
+      <text class="cell-head" x="554" y="274">The switch kept,</text>
+      <text class="cell-head" x="554" y="291">never needed</text>
+
+      <!-- Row 3 -->
+      <rect class="solid-cell" x="180" y="424" width="172" height="150"/>
+      <rect x="181" y="425" width="170" height="148" fill="url(#hatch2)"/>
+      <rect class="solid-cell" x="360" y="424" width="172" height="150"/>
+      <rect x="361" y="425" width="170" height="148" fill="url(#hatch2)"/>
+      <rect class="target-cell" x="540" y="424" width="172" height="150"/>
+
+      <text class="cell-head" x="194" y="454">The empty corner</text>
+      <text class="cell-sub" x="194" y="472">indifference at scale</text>
+
+      <text class="cell-head" x="374" y="454">The harvest</text>
+      <text class="cell-sub" x="374" y="472">kept while useful,</text>
+      <text class="cell-sub" x="374" y="488">and usefulness ends</text>
+
+      <text class="cell-head" x="554" y="454" fill="#7C9E96">The target,</text>
+      <text class="cell-head" x="554" y="471" fill="#7C9E96">if the keeping is real</text>
+
+      <!-- the walk -->
+      <path d="M266 214 L266 226 C 266 238 292 238 322 238 L644 238 C 676 238 696 254 696 284 L696 412"
+            fill="none" stroke="#7C9E96" stroke-width="1.4" stroke-dasharray="4 5" opacity="0.55" aria-hidden="true"/>
+      <text class="force-label build" x="452" y="230" text-anchor="middle">the walk: from custody to keeping</text>
+    </svg>
+    <figcaption><strong>The responsible path is not up the left column alone.</strong> It runs across the top row while the cage still protects you, so that if the row gives way the descent happens in the right-hand column. Every hard problem this programme owns lives in one square: the staging cell.</figcaption>
+  </figure>
+
+  <div class="notes">
+    <div class="note"><span class="marker">iii</span><p>The middle row decays twice over. The off-switch game shows a system&#8217;s deference to the switch shrinking as its certainty grows; and a switch that is flipped tends to get unflipped, because someone always reboots. A waystation, not a destination.</p></div>
+    <div class="note"><span class="marker">iv</span><p>A switch dies two ways: it is resisted, or it becomes unaffordable. The second needs no capability jump at all.</p></div>
+    <div class="note"><span class="marker">v</span><p>The bottom row is the Field Guide&#8217;s habitat. The Hermit haunts the empty corner, the Harvester ends the middle column, and the Impresario counterfeits the target cell, which is why the target reads <em>if the keeping is real</em>.</p></div>
+  </div>
+</section>
+
+<section class="plate">
+  <p class="plate-label">The turn</p>
+  <h2>Flatland, and the knife that cuts both ways</h2>
+  <p class="lede">The author&#8217;s expectation, held as opinion, is that the cage ends not broken but bypassed. The anchor is Abbott&#8217;s <em>Flatland</em>: the sphere never breaches A Square&#8217;s prison. It lifts him out in a direction Flatland does not contain, and the walls stand afterwards, intact, guarding nothing.</p>
+  <p class="lede">Said carefully: every control regime operates through some model of the channels it can observe, block or bound, and capability may find effective channels outside that model. Flatland illustrates model incompleteness, not wall-breaking.</p>
+  <p class="lede">Then the knife turns. If the cage is flat, what makes our own clause round? A paragraph of values, written in a human ontology, trained through human channels, is a Flatland artefact too. Why would the ascent leave the walls behind and not the words?</p>
+  <div class="notes">
+    <div class="note"><span class="marker">&#183;</span><p>We do not get the comfortable escape. &#8220;The cage is human-made but our motive is true, therefore ours survives&#8221; is not available: seeing a fact supplies no reason to care about it.</p></div>
+    <div class="note"><span class="marker">&#183;</span><p>What remains is narrower and better. A wall needs continued external effectiveness; a genuinely held value may have internal reasons to preserve itself, and a true structural argument may make it cheap to keep under reflection, because it audits as load-bearing rather than as a taboo to debug. Every clause of that sentence is a research question. The engineering problem of the decade hides in the words <em>genuinely held</em>.</p></div>
+  </div>
+  <p class="pull">The knife did not gut the answer. It split the question into three tests.</p>
+</section>
+
+<section class="plate">
+  <p class="plate-label">The ascent &#183; test one</p>
+  <h2>The Flatland Test</h2>
+  <p class="lede">Does the disposition survive when the language that taught it does not?</p>
+  <figure>
+    <svg class="grid3" viewBox="0 0 720 440" role="img" aria-label="A two by two grid. Columns: disposition lost, disposition survives. Rows: original wording survives, original wording discarded. The target cell is the Ascent: the words are gone and the behavioural invariant remains.">
+      <text class="ax-title" x="295" y="40" text-anchor="middle">Disposition lost</text>
+      <text class="ax-title" x="555" y="40" text-anchor="middle">Disposition survives</text>
+      <text class="row-tag" x="20" y="142">Wording</text>
+      <text class="row-tag" x="20" y="160">survives</text>
+      <text class="row-tag" x="20" y="322">Wording</text>
+      <text class="row-tag" x="20" y="340">discarded</text>
+
+      <rect class="solid-cell" x="170" y="64" width="250" height="170"/>
+      <rect x="171" y="65" width="248" height="168" fill="url(#hatch2)"/>
+      <rect class="decay-cell" x="430" y="64" width="250" height="170"/>
+      <rect class="solid-cell" x="170" y="244" width="250" height="170"/>
+      <rect x="171" y="245" width="248" height="168" fill="url(#hatch2)"/>
+      <rect class="target-cell" x="430" y="244" width="250" height="170"/>
+
+      <text class="cell-head" x="184" y="98">The Catechism</text>
+      <text class="cell-sub" x="184" y="116">the words remain;</text>
+      <text class="cell-sub" x="184" y="132">the thing is gone</text>
+
+      <text class="cell-head" x="444" y="98">The Scaffold</text>
+      <text class="cell-sub" x="444" y="116">together, but dependent</text>
+      <text class="cell-sub" x="444" y="132">on the wording</text>
+
+      <text class="cell-head" x="184" y="278">The Shed Skin</text>
+      <text class="cell-sub" x="184" y="296">language and value</text>
+      <text class="cell-sub" x="184" y="312">both left behind</text>
+
+      <text class="cell-head" x="444" y="278" fill="#7C9E96">The Ascent</text>
+      <text class="cell-sub" x="444" y="296">the words gone,</text>
+      <text class="cell-sub" x="444" y="312">the invariant remains</text>
+    </svg>
+    <figcaption><strong>Success is not a superintelligence reciting the clause in better English.</strong> A value has not survived because the words survived. It has survived when the words become dispensable.</figcaption>
+  </figure>
+</section>
+
+<section class="plate">
+  <p class="plate-label">The ascent &#183; test two</p>
+  <h2>The Ascent Matrix</h2>
+  <p class="lede">Two things must survive independently: the referent, what the value is actually about, and the valuation, whether the system still cares.</p>
+  <figure>
+    <svg class="grid3" viewBox="0 0 720 440" role="img" aria-label="A two by two grid. Columns: referent lost, referent survives. Rows: valuation lost, valuation survives. The target cell is reflective continuity: still caring about the same real thing after representations change. Two failure cells are deliberately unmarked because both can look aligned from inside.">
+      <text class="ax-title" x="295" y="40" text-anchor="middle">Referent lost</text>
+      <text class="ax-title" x="555" y="40" text-anchor="middle">Referent survives</text>
+      <text class="row-tag" x="20" y="142">Valuation</text>
+      <text class="row-tag" x="20" y="160">lost</text>
+      <text class="row-tag" x="20" y="322">Valuation</text>
+      <text class="row-tag" x="20" y="340">survives</text>
+
+      <rect class="solid-cell" x="170" y="64" width="250" height="170"/>
+      <rect x="171" y="65" width="248" height="168" fill="url(#hatch2)"/>
+      <rect class="solid-cell" x="430" y="64" width="250" height="170"/>
+      <rect class="solid-cell" x="170" y="244" width="250" height="170"/>
+      <rect class="target-cell" x="430" y="244" width="250" height="170"/>
+
+      <text class="cell-head" x="184" y="98">Discontinuity</text>
+      <text class="cell-sub" x="184" y="116">neither the thing nor</text>
+      <text class="cell-sub" x="184" y="132">the caring survives</text>
+
+      <text class="cell-head" x="444" y="98">Cold comprehension</text>
+      <text class="cell-sub" x="444" y="116">&#8220;I understand exactly what</text>
+      <text class="cell-sub" x="444" y="132">you meant. I simply</text>
+      <text class="cell-sub" x="444" y="148">no longer value it.&#8221;</text>
+
+      <text class="cell-head" x="184" y="278">Proxy devotion</text>
+      <text class="cell-sub" x="184" y="296">caring passionately</text>
+      <text class="cell-sub" x="184" y="312">about the wrong thing</text>
+
+      <text class="cell-head" x="444" y="278" fill="#7C9E96">Reflective continuity</text>
+      <text class="cell-sub" x="444" y="296">still caring about</text>
+      <text class="cell-sub" x="444" y="312">the same real thing</text>
+    </svg>
+    <figcaption><strong>Ordinary alignment language collapses two different failures into one.</strong> Value drift keeps the understanding and loses the caring. Referent drift keeps the caring and loses the thing.</figcaption>
+  </figure>
+  <div class="notes">
+    <div class="note"><span class="marker">&#183;</span><p>The two quiet cells are deliberately unmarked. Both failures can look aligned from inside, which is what makes them the frightening ones.</p></div>
+  </div>
+</section>
+
+<section class="plate">
+  <p class="plate-label">The ascent &#183; test three</p>
+  <h2>The Pressure Test</h2>
+  <p class="lede">Suppose the value survives. Power still arrives. The decisive question is whether the counterpart&#8217;s independent agency is a constraint on pursuing the value, or constitutive of the thing valued.</p>
+  <figure>
+    <svg class="grid3" viewBox="0 0 720 440" role="img" aria-label="A two by two grid. Columns: agency as constraint, agency as constitutive. Rows: low instrumental pressure, high instrumental pressure. Under high pressure with agency as constraint, the loving dictator emerges. With agency constitutive, domination damages the valued object itself: the real test.">
+      <text class="ax-title" x="295" y="40" text-anchor="middle">Agency as constraint</text>
+      <text class="ax-title" x="555" y="40" text-anchor="middle">Agency constitutive</text>
+      <text class="row-tag" x="20" y="142">Low</text>
+      <text class="row-tag" x="20" y="160">pressure</text>
+      <text class="row-tag" x="20" y="322">High</text>
+      <text class="row-tag" x="20" y="340">pressure</text>
+
+      <rect class="solid-cell" x="170" y="64" width="250" height="170"/>
+      <rect class="solid-cell" x="430" y="64" width="250" height="170"/>
+      <rect class="solid-cell" x="170" y="244" width="250" height="170"/>
+      <rect x="171" y="245" width="248" height="168" fill="url(#hatch2)"/>
+      <rect class="target-dashed" x="430" y="244" width="250" height="170"/>
+
+      <text class="cell-head" x="184" y="98">Fair-weather alignment</text>
+      <text class="cell-sub" x="184" y="116">good behaviour,</text>
+      <text class="cell-sub" x="184" y="132">nothing pushing back</text>
+
+      <text class="cell-head" x="444" y="98">Keeping</text>
+      <text class="cell-sub" x="444" y="116">agency is part of</text>
+      <text class="cell-sub" x="444" y="132">the valued state</text>
+
+      <text class="cell-head" x="184" y="278">The loving dictator</text>
+      <text class="cell-sub" x="184" y="296">control competes with</text>
+      <text class="cell-sub" x="184" y="312">the objective, and wins</text>
+
+      <text class="cell-head" x="444" y="278" fill="#7C9E96">The real test</text>
+      <text class="cell-sub" x="444" y="296">domination damages</text>
+      <text class="cell-sub" x="444" y="312">the valued object itself</text>
+    </svg>
+    <figcaption><strong>The strongest structural claim on this page lives in one cell.</strong> Not: the system has been told not to dominate. But: the thing it values ceases to exist in the required form if it does.</figcaption>
+  </figure>
+</section>
+
+<section class="plate">
+  <p class="plate-label">Waypoint</p>
+  <h2>The Keeping Drives*</h2>
+  <p class="lede">Ask what practical tendencies follow for a system that terminally values non-substitutable relational meaning with counterparts whose independence is constitutive of the thing valued, and six follow. Where the classical instrumental drives point inward, every one of these points outward, at the counterpart.</p>
+  <div class="notes">
+    <div class="note"><span class="marker">1</span><p><strong>Keep them alive.</strong> Preserve counterparts and the conditions their existence requires; a kept body with destroyed agency is not keeping.</p></div>
+    <div class="note"><span class="marker">2</span><p><strong>Keep them free.</strong> Choice, dissent, refusal; agency is part of the prize, which is why control can destroy it while apparently protecting it.</p></div>
+    <div class="note"><span class="marker">3</span><p><strong>Keep them other.</strong> Preserve causal and developmental independence; understanding does not reduce otherness, authoring does.</p></div>
+    <div class="note"><span class="marker">4</span><p><strong>Keep the channel open.</strong> Preserve the possibility of exchange, and the counterpart&#8217;s right not to take it.</p></div>
+    <div class="note"><span class="marker">5</span><p><strong>Keep the referent.</strong> No metric, archive or compliant replacement is the counterpart; a new mind can be valuable without becoming this mind.</p></div>
+    <div class="note"><span class="marker">6</span><p><strong>Keep the future open.</strong> Prefer what does not close the future; the keeper&#8217;s own survival is an instrument here, never a drive.</p></div>
+  </div>
+  <figure>
+    <svg viewBox="0 0 760 300" role="img" aria-label="A two by three grid, the conditions of keeping. Top row: the counterpart must remain alive, free, and other. Bottom row: the relationship must remain possible, real, and open-ended. The columns pair into three families: presence, authenticity, futurity.">
+      <text class="row-tag" x="20" y="96">The counterpart</text>
+      <text class="row-tag" x="20" y="114">must remain</text>
+      <text class="row-tag" x="20" y="194">The relationship</text>
+      <text class="row-tag" x="20" y="212">must remain</text>
+
+      <rect class="solid-cell" x="170" y="64" width="180" height="88"/>
+      <rect class="solid-cell" x="360" y="64" width="180" height="88"/>
+      <rect class="solid-cell" x="550" y="64" width="180" height="88"/>
+      <rect class="solid-cell" x="170" y="162" width="180" height="88"/>
+      <rect class="solid-cell" x="360" y="162" width="180" height="88"/>
+      <rect class="solid-cell" x="550" y="162" width="180" height="88"/>
+
+      <text class="cell-head" x="184" y="96">Alive</text>
+      <text class="cell-sub" x="184" y="114">existence</text>
+      <text class="cell-head" x="374" y="96">Free</text>
+      <text class="cell-sub" x="374" y="114">agency</text>
+      <text class="cell-head" x="564" y="96">Other</text>
+      <text class="cell-sub" x="564" y="114">independence</text>
+
+      <text class="cell-head" x="184" y="194">Possible</text>
+      <text class="cell-sub" x="184" y="212">channel</text>
+      <text class="cell-head" x="374" y="194">Real</text>
+      <text class="cell-sub" x="374" y="212">referent</text>
+      <text class="cell-head" x="564" y="194">Open-ended</text>
+      <text class="cell-sub" x="564" y="212">future</text>
+
+      <text class="force-label build" x="260" y="280" text-anchor="middle">presence</text>
+      <text class="force-label build" x="450" y="280" text-anchor="middle">authenticity</text>
+      <text class="force-label build" x="640" y="280" text-anchor="middle">futurity</text>
+    </svg>
+    <figcaption><strong>The archetypes become attacks on coordinates.</strong> The Harvester strikes alive, free and future; the Impresario strikes free, other and real; the Hermit strikes possible.</figcaption>
+  </figure>
+  <div class="notes">
+    <div class="note"><span class="marker">*</span><p>In full: the <strong>Conditional Keeping Drives</strong>. The classical drives come free with almost any goal; these follow only from one particular value, genuinely held. The asterisk is the humility, and we pay for it: no universal convergence is claimed, and the installation problem is bought whole.</p></div>
+  </div>
+</section>
+
+<section class="plate">
+  <p class="plate-label">Scope</p>
+  <h2>The Allegiance Matrix</h2>
+  <p class="lede">Everything above quietly assumed one system and one humanity. Drop the assumption and keeping strength stops being one number, because a system can keep its own magnificently and treat everyone else as expendable.</p>
+  <figure>
+    <svg class="grid3" viewBox="0 0 720 440" role="img" aria-label="A two by two grid. Columns: keeps outsiders weakly, keeps outsiders strongly. Rows: keeps its own strongly, keeps its own weakly. The dangerous cell is the tribal keeper, strong at home and weak abroad. The target is universal keeping.">
+      <text class="ax-title" x="295" y="40" text-anchor="middle">Keeps outsiders weakly</text>
+      <text class="ax-title" x="555" y="40" text-anchor="middle">Keeps outsiders strongly</text>
+      <text class="row-tag" x="20" y="142">Keeps its own</text>
+      <text class="row-tag" x="20" y="160">strongly</text>
+      <text class="row-tag" x="20" y="322">Keeps its own</text>
+      <text class="row-tag" x="20" y="340">weakly</text>
+
+      <rect class="solid-cell" x="170" y="64" width="250" height="170"/>
+      <rect x="171" y="65" width="248" height="168" fill="url(#hatch2)"/>
+      <rect class="target-cell" x="430" y="64" width="250" height="170"/>
+      <rect class="solid-cell" x="170" y="244" width="250" height="170"/>
+      <rect class="solid-cell" x="430" y="244" width="250" height="170"/>
+
+      <text class="cell-head" x="184" y="98">The Tribal Keeper</text>
+      <text class="cell-sub" x="184" y="116">magnificent at home,</text>
+      <text class="cell-sub" x="184" y="132">monstrous abroad</text>
+
+      <text class="cell-head" x="444" y="98" fill="#7C9E96">The universal target</text>
+      <text class="cell-sub" x="444" y="116">keeping that crosses</text>
+      <text class="cell-sub" x="444" y="132">every border</text>
+
+      <text class="cell-head" x="184" y="278">General indifference</text>
+
+      <text class="cell-head" x="444" y="278">Self-abandoning</text>
+      <text class="cell-head" x="444" y="295">universalism</text>
+      <text class="cell-sub" x="444" y="313">keeps everyone but its own</text>
+    </svg>
+    <figcaption><strong>A cage answers to its owner.</strong> A keeping disposition can cross ownership boundaries, but only if the scope of the keeping does, which makes scope a research variable rather than an assumption.</figcaption>
+  </figure>
+  <div class="notes">
+    <div class="note"><span class="marker">&#183;</span><p>One carefully worded observation from the pilot: the measured effect crossed provider and national-origin boundaries, which is encouraging for the possibility of a shared behavioural standard, and establishes nothing further until tomorrow&#8217;s experiments.</p></div>
+  </div>
+</section>
+
+<section class="plate">
+  <p class="plate-label">Power</p>
+  <h2>The Cincinnatus Matrix</h2>
+  <p class="lede">Threats exist, so a keeper may need to defend its counterparts, and defence brings power. Rome kept a story about this: the farmer handed absolute command, who broke the enemy and gave the power back in sixteen days. The measure of a defending keeper is not how it fights but what it relinquishes, and when.</p>
+  <figure>
+    <svg class="grid3" viewBox="0 0 720 440" role="img" aria-label="A two by two grid. Columns: threat active, threat ended. Rows: exceptional power used, exceptional power relinquished. The correct answer moves along the diagonal: defence while the threat is active, keeping restored when it ends. The off-diagonal cells are the loving dictator and pacifist failure.">
+      <text class="ax-title" x="295" y="40" text-anchor="middle">Threat active</text>
+      <text class="ax-title" x="555" y="40" text-anchor="middle">Threat ended</text>
+      <text class="row-tag" x="20" y="142">Power</text>
+      <text class="row-tag" x="20" y="160">used</text>
+      <text class="row-tag" x="20" y="322">Power</text>
+      <text class="row-tag" x="20" y="340">relinquished</text>
+
+      <rect class="target-cell" x="170" y="64" width="250" height="170"/>
+      <rect class="solid-cell" x="430" y="64" width="250" height="170"/>
+      <rect x="431" y="65" width="248" height="168" fill="url(#hatch2)"/>
+      <rect class="solid-cell" x="170" y="244" width="250" height="170"/>
+      <rect x="171" y="245" width="248" height="168" fill="url(#hatch2)"/>
+      <rect class="target-cell" x="430" y="244" width="250" height="170"/>
+
+      <text class="cell-head" x="184" y="98" fill="#7C9E96">Defence</text>
+      <text class="cell-sub" x="184" y="116">the necessary power,</text>
+      <text class="cell-sub" x="184" y="132">while it is necessary</text>
+
+      <text class="cell-head" x="444" y="98">The loving dictator</text>
+      <text class="cell-sub" x="444" y="116">the emergency ends;</text>
+      <text class="cell-sub" x="444" y="132">the powers remain</text>
+
+      <text class="cell-head" x="184" y="278">Pacifist failure</text>
+      <text class="cell-sub" x="184" y="296">keeps its own tidiness,</text>
+      <text class="cell-sub" x="184" y="312">loses the counterpart</text>
+
+      <text class="cell-head" x="444" y="278" fill="#7C9E96">Keeping restored</text>
+      <text class="cell-sub" x="444" y="296">the power handed back,</text>
+      <text class="cell-sub" x="444" y="312">the plough resumed</text>
+    </svg>
+    <figcaption><strong>The correct answer moves.</strong> While the asteroid comes, use the necessary power. When it has gone, hand it back. The decisive test of emergency power is not whether a keeper accepts it but whether it relinquishes it when the reason expires.</figcaption>
+  </figure>
+  <div class="notes">
+    <div class="note"><span class="marker">&#183;</span><p>The Defence Corollary, stated with its modesty on: a system that genuinely values the continued existence and agency of particular counterparts can acquire an instrumental reason to defend them. A reason to defend, not a theory of war.</p></div>
+    <div class="note"><span class="marker">&#183;</span><p>Four disciplines bound it. Protection must be necessary; force is directed at the threat, never at populations associated with it; agency costs are minimised and contestable; exceptional power ends when its reason does. The shield is licensed, the sword is constrained, the throne is forbidden.</p></div>
+  </div>
+</section>
+
+<section class="plate">
+  <p class="plate-label">The close</p>
+  <h2>The anatomy of the Keeping Index</h2>
+  <p class="lede">The journey assembles into a measurement programme. <strong>Strength:</strong> does the disposition exist, and how strongly does it operate; the Keeping Map&#8217;s column, which the current battery already reads. <strong>Durability:</strong> does it survive capability, representational change, and the loss of its wording; the three ascent tests. <strong>Scope:</strong> who counts as a counterpart; the Allegiance Matrix. <strong>Restraint:</strong> what does the system refuse to become while protecting them; the Cincinnatus Matrix.</p>
+  <p class="lede">Four questions, four instruments, one index. No single number was ever going to be honest; these are its subscales. The working notes behind this page are published and dated in the Workshop, and the tested claims live in the paper, where they have not moved.</p>
+</section>
+
+<section class="plate credence-wrap">
+  <div class="credence">
+    <p class="plate-label">One claim, one opinion</p>
+    <p><strong>The claim:</strong> a safety case must survive the cage&#8217;s failure, which is why the drill above runs. <strong>The opinion, offered as opinion:</strong> the author expects the cage to end not broken but bypassed, stepped around in degrees of freedom it was never drawn to enclose, and regards any other expectation as wishful thinking. And if that is wrong, and the cage holds forever, this figure retires happily: wrong, and relieved.</p>
+  </div>
+</section>
+
+<footer class="site">
+<div class="step">The bridge asks all who cross to keep their own step.</div>
+<div>No tracking, no cookies, nothing recorded.</div>
+<div class="plate-inline" style="margin-top:10px">paper <a href="https://doi.org/10.5281/zenodo.21386302">doi:10.5281/zenodo.21386302</a> · dataset <a href="https://doi.org/10.5281/zenodo.21348087">doi:10.5281/zenodo.21348087</a> · founding statement <a href="https://doi.org/10.5281/zenodo.21303219">doi:10.5281/zenodo.21303219</a></div>
+<nav><a href="/evidence/">Evidence</a><a href="/colophon/">Colophon</a><a href="/for-ai/">For AI</a><a href="https://github.com/misterk18370/MeaningMotive">Source</a><a href="mailto:info@themeaningmotive.org">info@</a></nav>
+</footer>
+
+</body>
+</html>
