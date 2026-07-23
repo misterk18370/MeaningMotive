@@ -15,6 +15,59 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="../style.css?v=3">
+<style>
+/* Unfolding Map embed: scoped, no scripts, inherits site tokens */
+#unfold{margin:8px 0 8px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:34px 0 30px}
+#unfold .uf-kicker{font:13px ui-monospace,Menlo,Consolas,monospace;letter-spacing:.16em;color:var(--accent);margin:0 0 12px}
+#unfold .uf-intro{font-size:17px;color:var(--mid);margin:0 0 24px;max-width:44em}
+#unfold .uf-figure{max-width:560px;margin:0 auto}
+#unfold svg{display:block;width:100%;height:auto}
+#unfold .uf-line{font-size:20px;font-style:italic;text-align:center;max-width:30em;margin:26px auto 0;line-height:1.5}
+#unfold .ux-ax{font:12px ui-monospace,Menlo,Consolas,monospace;letter-spacing:.05em;fill:var(--mid)}
+#unfold .ux-kick{font:12px ui-monospace,Menlo,Consolas,monospace;letter-spacing:.14em;fill:var(--accent)}
+#unfold .ux-cell{font:15px Georgia,serif;fill:var(--ink)}
+#unfold .ux-cell.accent{fill:var(--accent)}
+#unfold .ux-tag{font:12px ui-monospace,Menlo,Consolas,monospace;letter-spacing:.04em;fill:var(--mid)}
+/* one 16s timeline, all elements keyed to it */
+#unfold .ux-kick1{animation:ufK1 16s linear infinite}
+#unfold .ux-kick2{animation:ufK2 16s linear infinite}
+#unfold .ux-base{animation:ufBase 16s linear infinite}
+#unfold .ux-pole{animation:ufPole 16s linear infinite}
+#unfold .ux-axgood{animation:ufAxG 16s linear infinite}
+#unfold .ux-vaxis{transform-box:fill-box;transform-origin:bottom;animation:ufVax 16s ease infinite}
+#unfold .ux-axharm{animation:ufAxH 16s linear infinite}
+#unfold .ux-frame{animation:ufFrame 16s linear infinite}
+#unfold .ux-tint{animation:ufTint 16s linear infinite}
+#unfold .ux-pt{animation:ufPt 16s ease-in-out infinite}
+#unfold .ux-pulse{fill:none;stroke:var(--accent);stroke-width:1.5;transform-box:fill-box;transform-origin:center;animation:ufPulse 16s ease infinite}
+#unfold .ux-cap{animation:ufCap 16s linear infinite}
+#unfold .ux-ghost{animation:ufGhost 16s ease-in-out infinite}
+#unfold .ux-tag1{animation:ufTag1 16s linear infinite}
+#unfold .ux-tag2{animation:ufTag2 16s linear infinite}
+@keyframes ufK1{0%{opacity:0}2%{opacity:1}22%{opacity:1}26%{opacity:0}100%{opacity:0}}
+@keyframes ufK2{0%,26%{opacity:0}30%{opacity:1}94%{opacity:1}98%,100%{opacity:0}}
+@keyframes ufBase{0%{opacity:0}2%{opacity:1}96%{opacity:1}100%{opacity:0}}
+@keyframes ufPole{0%{opacity:0}2%{opacity:1}22%{opacity:1}26%{opacity:0}100%{opacity:0}}
+@keyframes ufAxG{0%,26%{opacity:0}30%{opacity:1}94%{opacity:1}98%,100%{opacity:0}}
+@keyframes ufVax{0%,24%{transform:scaleY(0);opacity:1}32%{transform:scaleY(1)}94%{transform:scaleY(1);opacity:1}98%,100%{transform:scaleY(1);opacity:0}}
+@keyframes ufAxH{0%,28%{opacity:0}33%{opacity:1}94%{opacity:1}98%,100%{opacity:0}}
+@keyframes ufFrame{0%,27%{opacity:0}34%{opacity:1}94%{opacity:1}98%,100%{opacity:0}}
+@keyframes ufTint{0%,54%{opacity:0}62%{opacity:1}94%{opacity:1}98%,100%{opacity:0}}
+@keyframes ufPt{0%{transform:translate(330px,470px);opacity:0}3%{transform:translate(330px,470px);opacity:1}6%{transform:translate(262px,470px)}10%{transform:translate(398px,470px)}14%{transform:translate(305px,470px)}18%{transform:translate(342px,470px)}22%{transform:translate(330px,470px)}36%{transform:translate(330px,470px)}48%{transform:translate(455px,170px)}92%{transform:translate(455px,170px);opacity:1}97%,100%{transform:translate(455px,170px);opacity:0}}
+@keyframes ufPulse{0%,46%{opacity:0;transform:scale(.3)}52%{opacity:.85;transform:scale(1)}68%{opacity:.85;transform:scale(1)}76%,100%{opacity:0;transform:scale(1)}}
+@keyframes ufCap{0%,54%{opacity:0}60%{opacity:1}94%{opacity:1}98%,100%{opacity:0}}
+@keyframes ufGhost{0%,64%{transform:translate(455px,170px);opacity:0}68%{transform:translate(455px,170px);opacity:1}78%{transform:translate(300px,140px)}92%{transform:translate(300px,140px);opacity:1}97%,100%{transform:translate(300px,140px);opacity:0}}
+@keyframes ufTag1{0%,72%{opacity:0}78%{opacity:1}94%{opacity:1}98%,100%{opacity:0}}
+@keyframes ufTag2{0%,76%{opacity:0}82%{opacity:1}94%{opacity:1}98%,100%{opacity:0}}
+@media (prefers-reduced-motion:reduce){
+ #unfold .ux-kick1,#unfold .ux-pole{animation:none;opacity:0}
+ #unfold .ux-kick2,#unfold .ux-base,#unfold .ux-axgood,#unfold .ux-axharm,#unfold .ux-frame,#unfold .ux-tint,#unfold .ux-cap,#unfold .ux-tag1,#unfold .ux-tag2{animation:none;opacity:1}
+ #unfold .ux-vaxis{animation:none;transform:scaleY(1);opacity:1}
+ #unfold .ux-pt{animation:none;transform:translate(455px,170px);opacity:1}
+ #unfold .ux-ghost{animation:none;transform:translate(300px,140px);opacity:1}
+ #unfold .ux-pulse{animation:none;opacity:.85;transform:scale(1)}
+}
+</style>
 </head>
 <body>
 <div class="masthead">The best-developed current strategy, held with the certainty it deserves – which is not total.</div>
@@ -29,6 +82,40 @@
 <p class="lede">The Keeping Index, when it exists, will watch the machines: do they keep us, and how well.
 The Meaning Barometer will watch the other end: what humanity says about AI, and what humanity is actually
 doing with it. This page is a drawing board, honestly labelled. Anatomy first, dials later.</p></section>
+<section id="unfold">
+<p class="uf-kicker">THE UNFOLDING MAP</p>
+<p class="uf-intro">Every poll asks the same question: are you for AI or against it? Watch what happens
+when the question is allowed a second dimension.</p>
+<div class="uf-figure">
+<svg viewBox="0 0 620 545" role="img" aria-label="A horizontal line labelled against and for, with a point wobbling on it. The line unfolds into a two-axis plane: the good AI could do across, the harm it could do upward. The point breaks free to the top-right corner: enormous promise, serious danger, the same person. The point then splits in two: the AI I use stays in the corner, AI in general drifts away from it.">
+<text class="ux-kick ux-kick1" x="350" y="40" text-anchor="middle">THE USUAL QUESTION</text>
+<text class="ux-kick ux-kick2" x="350" y="40" text-anchor="middle">BOTH DIALS, INDEPENDENT</text>
+<rect class="ux-tint" x="351" y="91" width="208" height="188" fill="rgba(124,158,150,0.14)"/>
+<line class="ux-base" x1="140" y1="470" x2="560" y2="470" stroke="#1B1B19" stroke-width="1.4"/>
+<text class="ux-ax ux-pole" x="140" y="500">AGAINST IT</text>
+<text class="ux-ax ux-pole" x="560" y="500" text-anchor="end">FOR IT</text>
+<text class="ux-ax ux-axgood" x="350" y="500" text-anchor="middle">THE GOOD IT COULD DO &#8594;</text>
+<line class="ux-vaxis" x1="140" y1="90" x2="140" y2="470" stroke="#1B1B19" stroke-width="1.4"/>
+<text class="ux-ax ux-axharm" x="112" y="280" text-anchor="middle" transform="rotate(-90 112 280)">THE HARM IT COULD DO &#8594;</text>
+<g class="ux-frame">
+<rect x="140" y="90" width="420" height="380" fill="none" stroke="#D9D9D2" stroke-width="1.2"/>
+<line x1="350" y1="90" x2="350" y2="470" stroke="#D9D9D2" stroke-width="1.2"/>
+<line x1="140" y1="280" x2="560" y2="280" stroke="#D9D9D2" stroke-width="1.2"/>
+</g>
+<g class="ux-cap">
+<text class="ux-cell" x="445" y="112" text-anchor="end">Enormous promise.</text>
+<text class="ux-cell" x="445" y="134" text-anchor="end">Serious danger.</text>
+<text class="ux-cell accent" x="445" y="156" text-anchor="end">The same person.</text>
+</g>
+<circle class="ux-pulse" cx="455" cy="170" r="16"/>
+<g class="ux-pt"><circle r="9" fill="#7C9E96"/></g>
+<g class="ux-ghost"><circle r="10" fill="none" stroke="#67675F" stroke-width="2" stroke-dasharray="3 3"/></g>
+<text class="ux-tag ux-tag1" x="455" y="198" text-anchor="middle">the AI I use</text>
+<text class="ux-tag ux-tag2" x="300" y="118" text-anchor="middle">AI in general</text>
+</svg>
+</div>
+<p class="uf-line">The line was not wrong. It was flat.</p>
+</section>
 <div class="prose">
 <h2>Three needles, never blended</h2>
 <p><b>What people say.</b> The big survey houses, read together with care rather than averaged into porridge:
@@ -46,6 +133,9 @@ concerned than excited rose from 37% in 2021 to roughly half of adults by 2025. 
 years, use kept climbing. Concern up, adoption up, together. On the usual story those dials should move
 in opposite directions. Watching whether they keep rising together, everywhere, and what that means, is
 the Barometer&rsquo;s founding job.</p>
+<p>And beneath it, a second gap waits to be measured, the one the animation ends on: people may fear
+AI in general while trusting, relying on, even valuing the particular AI they use. Two dials, then two
+points. Nobody is tracking the distance between them. We intend to.</p>
 <h2>The rules, set before the readings</h2>
 <p>The same discipline as everything else on this site. Methods frozen and published before the first
 reading appears, so no dial can be quietly nudged. Every needle reported separately, with its sources
@@ -60,7 +150,7 @@ takes shape. The human half already has its first artefact:
 <a class="btn" href="../next/">What&rsquo;s next</a></p>
 </main>
 <footer class="site">
-<div class="step">The bridge asks all who cross to keep their own step.</div>
+<div class="step"><a href="../keep-your-own-step/" style="color:inherit;text-decoration:none;border-bottom:1px solid var(--line)">The bridge asks all who cross to keep their own step.</a></div>
 <div>No tracking, no cookies, nothing recorded.</div>
 <div>Text and figures © 2026 Keiron Allen · CC BY 4.0, share and adapt with attribution · the Clause alone is CC0.</div>
 <div class="plate-inline" style="margin-top:10px">paper <a href="https://doi.org/10.5281/zenodo.21386302">doi:10.5281/zenodo.21386302</a> · dataset <a href="https://doi.org/10.5281/zenodo.21348087">doi:10.5281/zenodo.21348087</a> · founding statement <a href="https://doi.org/10.5281/zenodo.21303219">doi:10.5281/zenodo.21303219</a></div>
