@@ -56,3 +56,125 @@ footer.site nav a{color:var(--mid);margin:0 8px}
 
 /* front-page crest */
 .crest{display:block;margin:0 auto 30px;width:min(64%,340px);height:auto}
+
+/* ============================================================
+   v2 extensions · six-door rebuild · 19 August 2026
+   Same designer, same day: tokens above are untouched.
+   Additions: two-family status tags, six-door navigation,
+   footer sitemap, hub cards, skip link, bridge log.
+   ============================================================ */
+
+/* --- skip link (keyboard first) --- */
+.skip{position:absolute;left:-9999px;top:0;background:var(--ink);color:#fff;
+  padding:10px 16px;font:14px Georgia,serif;z-index:99}
+.skip:focus{left:0}
+
+/* --- status tags: two families plus one instrument badge.
+   The family is carried by SHAPE, never colour alone:
+   research status = square-cornered, solid left bar (what we are doing);
+   evidence status = rounded pill, dashed border (what we know);
+   instrument badge = hatched plate (site machinery).
+   Usage: <span class="tag research">RUNNING</span>
+          <span class="tag evidence">CONJECTURE</span>
+          <span class="tag badge">UNDER CONSTRUCTION</span>          --- */
+.tag{display:inline-block;font:11px ui-monospace,Menlo,Consolas,monospace;
+  letter-spacing:.14em;padding:2px 9px;vertical-align:middle;white-space:nowrap;
+  color:var(--ink);background:#fff}
+.tag.research{border:1px solid var(--ink);border-left:5px solid var(--ink)}
+.tag.evidence{border:1px dashed var(--mid);border-radius:999px;color:var(--mid)}
+.tag.badge{border:1px solid var(--line);
+  background:repeating-linear-gradient(45deg,#fff,#fff 4px,#EFEFE9 4px,#EFEFE9 6px)}
+/* optional accent, decoration only: the word and the shape carry the meaning */
+.tag.good{border-color:var(--accent)}
+.tag.open{border-color:var(--rose)}
+
+/* --- six-door header --- */
+header.site .bar{align-items:center}
+.nav-toggle{display:none;border:1px solid var(--line);background:#fff;
+  font:14px Georgia,serif;padding:7px 14px;cursor:pointer}
+.nav-toggle[aria-expanded="true"]{border-color:var(--accent)}
+nav.doors6{display:flex;gap:2px;flex-wrap:wrap}
+nav.doors6 ul{list-style:none;margin:0;padding:0;display:flex;gap:2px;flex-wrap:wrap}
+nav.doors6 li{position:relative}
+nav.doors6 .doorlink{display:inline-block;font:14px Georgia,serif;color:var(--mid);
+  text-decoration:none;padding:8px 11px;font-variant:small-caps;letter-spacing:.05em}
+nav.doors6 .doorlink:hover,nav.doors6 .doorlink:focus{color:var(--ink);
+  box-shadow:inset 0 -2px 0 var(--accent);outline:none}
+nav.doors6 li.active>.doorlink{color:var(--ink);box-shadow:inset 0 -2px 0 var(--accent)}
+nav.doors6 .disclose{display:none}
+nav.doors6 .panel{position:absolute;left:0;top:100%;min-width:220px;z-index:50;
+  background:#fff;border:1px solid var(--line);border-top:2px solid var(--accent);
+  padding:10px 0;margin:0;display:none;box-shadow:0 6px 18px rgba(27,27,25,.07)}
+nav.doors6 li:hover>.panel,nav.doors6 li:focus-within>.panel{display:block}
+nav.doors6 .panel a{display:block;font:14.5px Georgia,serif;color:var(--ink);
+  text-decoration:none;padding:6px 16px}
+nav.doors6 .panel a:hover,nav.doors6 .panel a:focus{background:var(--paper);
+  color:var(--ink);box-shadow:inset 3px 0 0 var(--accent);outline:none}
+nav.doors6 .panel .rel{display:block;font:12px ui-monospace,Menlo,Consolas,monospace;
+  letter-spacing:.1em;color:var(--accent);padding:2px 16px 8px}
+
+/* mobile: doors become an accordion */
+@media (max-width:760px){
+  .nav-toggle{display:inline-block}
+  nav.doors6{display:none;width:100%}
+  nav.doors6.open{display:block;border-top:1px solid var(--line);margin-top:8px;padding-top:6px}
+  nav.doors6 ul{display:block}
+  nav.doors6 li{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between}
+  nav.doors6 .doorlink{font-size:16px;padding:10px 4px}
+  nav.doors6 .disclose{display:inline-block;border:1px solid var(--line);background:#fff;
+    font:13px ui-monospace,monospace;width:32px;height:28px;cursor:pointer;color:var(--mid)}
+  nav.doors6 .disclose[aria-expanded="true"]{border-color:var(--accent);color:var(--ink)}
+  nav.doors6 .panel{position:static;display:none;width:100%;border:none;
+    border-left:2px solid var(--line);box-shadow:none;margin:0 0 8px 6px;padding:2px 0}
+  nav.doors6 li.openpanel>.panel{display:block}
+  nav.doors6 li:hover>.panel{display:none}
+  nav.doors6 li.openpanel:hover>.panel{display:block}
+}
+
+/* --- footer sitemap: six columns mirroring the doors --- */
+footer.site{text-align:left}
+.footmap{max-width:980px;margin:0 auto 26px;display:grid;gap:22px 18px;
+  grid-template-columns:repeat(auto-fit,minmax(140px,1fr))}
+.footmap h3{font:14px Georgia,serif;font-variant:small-caps;letter-spacing:.07em;
+  margin:0 0 2px;font-weight:normal}
+.footmap h3 a{color:var(--ink);text-decoration:none}
+.footmap h3 a:hover{border-bottom:1px solid var(--accent)}
+.footmap .rel{font-style:italic;color:var(--mid);font-size:12.5px;margin:0 0 8px}
+.footmap ul{list-style:none;margin:0;padding:0}
+.footmap li{margin:0 0 4px}
+.footmap a{color:var(--mid);text-decoration:none;font-size:13px;margin:0}
+.footmap a:hover,.footmap a:focus{color:var(--ink);border-bottom:1px solid var(--accent)}
+.footmeta{max-width:980px;margin:0 auto;text-align:center;
+  border-top:1px solid var(--line);padding-top:20px}
+
+/* --- hub pages: relationship line and cards --- */
+.relline{font:13px ui-monospace,Menlo,Consolas,monospace;letter-spacing:.16em;
+  color:var(--accent);margin:0 0 10px}
+.hubgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:14px;margin:34px 0}
+.hubgrid .door b{font-size:16px}
+.hubgrid .door .tagline{display:block;margin-top:8px}
+
+/* --- bridge log (homepage) --- */
+.bridgelog{border:1px solid var(--line);background:#fff;margin:34px 0;padding:16px 20px}
+.bridgelog dt{font:12px ui-monospace,Menlo,Consolas,monospace;letter-spacing:.14em;
+  color:var(--accent);margin-top:10px}
+.bridgelog dt:first-child{margin-top:0}
+.bridgelog dd{margin:2px 0 0;font-size:15.5px}
+.bridgelog dd .date{color:var(--mid);font-size:13px}
+
+/* --- header block card (research tree branches) --- */
+.branchcard{border:1px solid var(--line);border-left:4px solid var(--ink);
+  background:#fff;padding:14px 18px;margin:18px 0;font-size:14.5px}
+.branchcard dt{font:11px ui-monospace,Menlo,Consolas,monospace;letter-spacing:.14em;
+  color:var(--mid);float:left;clear:left;width:9.5em;padding-top:2px}
+.branchcard dd{margin:0 0 6px 10em}
+
+/* --- motion and print discipline --- */
+@media (prefers-reduced-motion:reduce){
+  nav.doors6 .panel{transition:none}
+}
+@media print{
+  header.site,footer.site .footmap,.nav-toggle{display:none}
+  body{font-size:12pt}
+}

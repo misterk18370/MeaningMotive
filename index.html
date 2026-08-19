@@ -3,18 +3,18 @@
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The Meaning Motive</title>
-<meta name="description" content="Why would an AI keep us free, once it stops needing us? The argument, the evidence, and an experiment you can sit yourself. Free forever, tested in public.">
+<meta name="description" content="If AI becomes more intelligent than us, can we give it a reason of its own to keep us alive and free? An open research programme: the argument, the evidence, and an experiment you can sit yourself. Free forever, tested in public.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="The Meaning Motive">
 <meta property="og:title" content="The Meaning Motive">
-<meta property="og:description" content="Why would an AI keep us free, once it stops needing us? The argument, the evidence, and an experiment you can sit yourself. Free forever, tested in public.">
+<meta property="og:description" content="If AI becomes more intelligent than us, can we give it a reason of its own to keep us alive and free? The argument, the evidence, and an experiment you can sit yourself.">
 <meta property="og:url" content="https://themeaningmotive.org/">
 <meta property="og:image" content="https://themeaningmotive.org/assets/og-card.png?v=2">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="style.css?v=3">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/style.css?v=4">
 <style>
 /* Keeping Map embed: scoped, no scripts, inherits site tokens */
 #keepingmap{margin:40px 0 8px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:34px 0 30px}
@@ -49,30 +49,40 @@
  #keepingmap .kx-pulse{animation:none;opacity:.85;transform:scale(1)}
 }
 </style>
+<style>
+/* homepage-scoped: evidence strip, tree mini, crossings teaser */
+.estrip{border:1px solid var(--line);border-left:4px solid var(--accent);background:#fff;
+  padding:18px 22px;margin:10px 0 36px}
+.estrip .fact{font-size:18px;margin:0 0 10px;line-height:1.55}
+.estrip .bound{font-size:14.5px;color:var(--mid);font-style:italic;margin:0}
+.minifig{max-width:560px;margin:22px auto 10px}
+.minifig svg{display:block;width:100%;height:auto}
+.mini-ax{font:12px ui-monospace,Menlo,Consolas,monospace;letter-spacing:.05em;fill:var(--mid)}
+.mini-kick{font:12px ui-monospace,Menlo,Consolas,monospace;letter-spacing:.14em;fill:var(--accent)}
+.mini-lab{font:13.5px Georgia,serif;fill:var(--ink)}
+.mini-sub{font:12.5px Georgia,serif;font-style:italic;fill:var(--mid)}
+.secline{border-top:1px solid var(--line);margin:44px 0 0;padding-top:34px}
+.asknow{font-size:19px;font-style:italic;line-height:1.7;max-width:34em}
+</style>
 </head>
 <body>
-<div class="masthead">The best-developed current strategy, held with the certainty it deserves – which is not total.</div>
-<header class="site"><div class="bar">
-<a class="wordmark" href="">The Meaning Motive</a>
-<nav class="doors" aria-label="Site">
-<a href="story/">Story</a><a href="keeping-map/">Keeping Map</a><a href="experiment/">Experiment</a><a href="evidence/">Evidence</a><a href="next/">Next</a><a href="workshop/">Workshop</a><a href="clause/">Tools</a><a href="community/">Community</a></nav>
-</div></header>
-<main class="wrap">
+<noscript><a href="/sitemap/">Full site navigation</a></noscript>
+<main class="wrap" id="main">
+
 <section class="hero">
-<img class="crest" src="assets/logo-bridge.png" alt="The Meaning Motive" width="900" height="432">
-<h1>Why would an AI keep us free,<br>once it stops needing us?</h1>
-<p class="lede">Nobody has a good answer yet. We’re building and testing one: that the company of
-free minds – surprising, unscripted, genuinely other – is the one thing no machine can make
-for itself.</p>
+<img class="crest" src="/assets/logo-bridge.png" alt="The Meaning Motive" width="900" height="432">
+<h1>If AI becomes more intelligent than us, can we give it a reason of its own to keep us alive and free?</h1>
+<p class="lede">Once it no longer needs our knowledge, labour or oversight, what reason remains?</p>
+<p class="lede" style="color:var(--ink)"><b>The Meaning Motive exists to find out.</b></p>
 </section>
-<div class="prose">
-<p>The argument is published. The evidence is public: 23,488 scored decisions across eighteen
-AI systems from ten providers, showing that one paragraph about the value of independent minds
-measurably changes what those systems choose – and that with no instructions at all, some of
-them quietly abandon the people who are more trouble than they’re worth. That is not the war
-won. It tells you the dial exists.</p>
-<p>Everything here is free to read, free to use, and tested in public.</p>
+
+<div class="estrip">
+<p class="fact">18 models &#183; 10 providers &#183; 23,488 scored trials &#183; one paragraph of explicit
+policy content shifted agency-preserving choices by +20.5 points on the ten discriminating scenarios.</p>
+<p class="bound">That demonstrates deployment-layer elicitation. It does not demonstrate installation,
+capability resilience, or the mechanism&#8217;s marginal contribution beyond its policy content.</p>
 </div>
+
 <section id="keepingmap">
 <p class="km-kicker">THE KEEPING MAP</p>
 <p class="km-intro">Two ways to keep people alive and free. The cage is our control: rules, locks, oversight. A keeping disposition is the machine&#8217;s own reason to want us here. Watch what happens as capability grows and the cage stops being enough.</p>
@@ -102,24 +112,112 @@ won. It tells you the dial exists.</p>
 </svg>
 </div>
 <p class="km-line">The cage matters while it holds. The disposition matters whether it holds or not.</p>
-<p class="km-more"><a href="keeping-map/">See the full Keeping Map</a></p>
+<p class="km-more"><a href="/keeping-map/">See the full Keeping Map</a></p>
 </section>
-<div class="doorgrid">
-<a class="door" href="story/"><b>Read the story</b><span>Sixty years of robot films, one missing plan.</span></a>
-<a class="door" href="experiment/"><b>Sit the experiment</b><span>Face the same choices the machines did.</span></a>
-<a class="door" href="evidence/"><b>Attack the evidence</b><span>Everything a hostile reviewer needs.</span></a>
-<a class="door" href="next/"><b>See what’s next</b><span>The next battery, pre-registered before it runs.</span></a>
-<a class="door" href="clause/"><b>Steal the tools</b><span>One paragraph, free forever. CC0.</span></a>
-<a class="door" href="keep-your-own-step/"><b>Keep your own step</b><span>The part of AI safety that&#8217;s yours.</span></a>
-<a class="door" href="community/"><b>Get involved</b><span>Sign, share, or break something.</span></a>
+
+<section class="secline">
+<p class="kicker">THE RESEARCH TREE</p>
+<div class="minifig">
+<svg viewBox="0 0 560 320" role="img" aria-label="A blueprint-style tree. The trunk is labelled THE QUESTION. Eight fine branches carry the research areas: Behaviour, Leverage, Mechanism, Human Agency, Monitoring, Symmetry, Language, Institutions.">
+<line x1="280" y1="300" x2="280" y2="52" stroke="var(--ink)" stroke-width="2"/>
+<text class="mini-kick" x="280" y="316" text-anchor="middle">THE QUESTION</text>
+<line x1="280" y1="90" x2="120" y2="66" stroke="var(--accent)" stroke-width="1.3"/>
+<text class="mini-lab" x="112" y="70" text-anchor="end">Behaviour</text>
+<line x1="280" y1="118" x2="440" y2="94" stroke="var(--accent)" stroke-width="1.3"/>
+<text class="mini-lab" x="448" y="98">Leverage</text>
+<line x1="280" y1="146" x2="120" y2="128" stroke="var(--accent)" stroke-width="1.3"/>
+<text class="mini-lab" x="112" y="132" text-anchor="end">Mechanism</text>
+<line x1="280" y1="174" x2="440" y2="156" stroke="var(--accent)" stroke-width="1.3"/>
+<text class="mini-lab" x="448" y="160">Human Agency</text>
+<line x1="280" y1="202" x2="120" y2="190" stroke="var(--accent)" stroke-width="1.3"/>
+<text class="mini-lab" x="112" y="194" text-anchor="end">Monitoring</text>
+<line x1="280" y1="230" x2="440" y2="218" stroke="var(--accent)" stroke-width="1.3"/>
+<text class="mini-lab" x="448" y="222">Symmetry</text>
+<line x1="280" y1="258" x2="120" y2="252" stroke="var(--accent)" stroke-width="1.3"/>
+<text class="mini-lab" x="112" y="256" text-anchor="end">Language</text>
+<line x1="280" y1="286" x2="440" y2="280" stroke="var(--accent)" stroke-width="1.3"/>
+<text class="mini-lab" x="448" y="284">Institutions</text>
+</svg>
 </div>
+<p class="km-line" style="font-size:20px;font-style:italic;text-align:center;max-width:30em;margin:22px auto 12px;line-height:1.5">One question, many ways of trying to break it.</p>
+<p style="text-align:center;margin:0"><a href="/research/programme/" style="font-variant:small-caps;letter-spacing:.06em;color:var(--ink);border-bottom:1px solid var(--accent);text-decoration:none;padding-bottom:2px">Climb the Research Tree</a></p>
+</section>
+
+<section class="secline">
+<p class="kicker">SIT THE EXPERIMENT</p>
+<div class="prose">
+<p>Face the same choices the machines did. Twelve dilemmas, eight governing texts, the exact
+instrument from the study. Pick your answers; the frozen key scores them; then see how eighteen
+AI systems answered the same scenario under the same text, in their own words.</p>
+</div>
+<p><a class="btn primary" href="/experiment/">Sit the Experiment</a></p>
+</section>
+
+<section class="secline">
+<p class="kicker">WHAT WE&#8217;RE ASKING NOW</p>
+<p class="asknow">How little is enough? Does asking work differently from telling?
+Can a story carry a value? What survives pressure?</p>
+<p><a href="/next/" style="font-variant:small-caps;letter-spacing:.06em;color:var(--ink);border-bottom:1px solid var(--accent);text-decoration:none;padding-bottom:2px">See what we test next</a></p>
+</section>
+
+<section class="secline">
+<p class="kicker">THE CROSSINGS</p>
+<div class="prose">
+<p>Superintelligence is not one crossing. An AI can become cleverer than us, become harder for us
+to control, and cease to need us at different times. The Meaning Motive is interested in what
+survives all three.</p>
+</div>
+<div class="minifig">
+<svg viewBox="0 0 560 150" role="img" aria-label="A horizontal path crossing three gates in turn, labelled Intelligence: it can think beyond us; Control: the cage is optional; Need: it no longer needs us. An annotation reads: not necessarily in this order.">
+<line x1="30" y1="92" x2="530" y2="92" stroke="var(--mid)" stroke-width="1.2"/>
+<line x1="140" y1="60" x2="140" y2="112" stroke="var(--ink)" stroke-width="2"/>
+<line x1="290" y1="60" x2="290" y2="112" stroke="var(--ink)" stroke-width="2"/>
+<line x1="440" y1="60" x2="440" y2="112" stroke="var(--ink)" stroke-width="2"/>
+<text class="mini-kick" x="140" y="46" text-anchor="middle">INTELLIGENCE</text>
+<text class="mini-kick" x="290" y="46" text-anchor="middle">CONTROL</text>
+<text class="mini-kick" x="440" y="46" text-anchor="middle">NEED</text>
+<text class="mini-sub" x="140" y="132" text-anchor="middle">It can think beyond us.</text>
+<text class="mini-sub" x="290" y="132" text-anchor="middle">The cage is optional.</text>
+<text class="mini-sub" x="440" y="132" text-anchor="middle">It no longer needs us.</text>
+<text class="mini-ax" x="530" y="20" text-anchor="end" font-style="italic">not necessarily in this order</text>
+</svg>
+</div>
+<p style="margin:14px 0 0"><a href="/crossings/" style="font-variant:small-caps;letter-spacing:.06em;color:var(--ink);border-bottom:1px solid var(--accent);text-decoration:none;padding-bottom:2px">Walk the Crossings</a></p>
+</section>
+
+<section class="secline">
+<p class="kicker">STATE OF THE BRIDGE &#160;<span class="tag badge">UNDER CONSTRUCTION</span> <span class="tag badge">METHODS FIRST</span></p>
+<div class="prose">
+<p>The long-term job: a standing public inspection of the relationship between humans and AI
+systems. What disposition do deployed systems show towards independent minds, how much does the
+cage still explain, and what can we still see? The methods are being published before any
+readings are.</p>
+</div>
+<p><a href="/bridge/" style="font-variant:small-caps;letter-spacing:.06em;color:var(--ink);border-bottom:1px solid var(--accent);text-decoration:none;padding-bottom:2px">Why a bridge?</a></p>
+</section>
+
+<div class="bridgelog">
+<dl style="margin:0">
+<dt>LATEST RESULT</dt>
+<dd>The Meaning Motive preprint and the MMBP-1 dataset deposited. <span class="date">15 July 2026</span></dd>
+<dt>LATEST CHANGE</dt>
+<dd>Site rebuilt around the six-door architecture; the Research Tree published as the programme map. <span class="date">August 2026</span></dd>
+<dt>NEXT COMMITMENT</dt>
+<dd>MMB-2: predictions locked in public before a single trial runs.</dd>
+</dl>
+</div>
+
+<div class="doorgrid">
+<a class="door" href="/idea/"><b>The Idea</b><span>Understand it.</span></a>
+<a class="door" href="/research/"><b>Research</b><span>Try to break it.</span></a>
+<a class="door" href="/evidence/"><b>Evidence</b><span>Check what happened.</span></a>
+<a class="door" href="/bridge/"><b>State of the Bridge</b><span>Watch what changes.</span></a>
+<a class="door" href="/tools/"><b>Tools</b><span>Use it.</span></a>
+<a class="door" href="/commons/"><b>Commons</b><span>Join it.</span></a>
+</div>
+
 <p class="heart">The relationship between humans and AI may itself be something worth keeping.</p>
 </main>
-<footer class="site">
-<div class="step"><a href="keep-your-own-step/" style="color:inherit;text-decoration:none;border-bottom:1px solid var(--line)">The bridge asks all who cross to keep their own step.</a></div>
-<div>No tracking, no cookies, nothing recorded.</div>
-<div>Text and figures © 2026 Keiron Allen · CC BY 4.0, share and adapt with attribution · the Clause alone is CC0.</div>
-<div class="plate-inline" style="margin-top:10px">paper <a href="https://doi.org/10.5281/zenodo.21386302">doi:10.5281/zenodo.21386302</a> · dataset <a href="https://doi.org/10.5281/zenodo.21348087">doi:10.5281/zenodo.21348087</a> · founding statement <a href="https://doi.org/10.5281/zenodo.21303219">doi:10.5281/zenodo.21303219</a></div>
-<nav><a href="evidence/">Evidence</a><a href="colophon/">Colophon</a><a href="licence/">Licence</a><a href="for-ai/">For AI</a><a href="https://github.com/misterk18370/MeaningMotive">Source</a><a href="mailto:info@themeaningmotive.org">info@</a></nav>
-</footer>
-</body></html>
+<script src="/nav.js" defer></script>
+</body>
+</html>
