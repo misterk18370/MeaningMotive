@@ -1,6 +1,6 @@
 # The Meaning Motive
 
-> Why would an AI keep us free, once it stops needing us? A research programme building and testing one answer: that value arising between genuinely independent minds cannot be self-supplied, and a system that terminally values it would have a structural reason to keep counterpart minds alive, free and genuinely other. Demonstrated so far: behavioural elicitation across eighteen models (23,488 scored trials). Not demonstrated: installation or capability invariance. The open problems are published, including the unanswered ones.
+> If AI becomes more intelligent than us, can we give it a reason of its own to keep us alive and free? Once it no longer needs our knowledge, labour or oversight, what reason remains? A research programme building and testing one answer: that value arising between genuinely independent minds cannot be self-supplied, and a system that terminally values it would have a structural reason to keep counterpart minds alive, free and genuinely other. Demonstrated so far: behavioural elicitation across eighteen models (23,488 scored trials). Not demonstrated: installation or capability invariance. The open problems are published, including the unanswered ones.
 
 ## Canonical
 - [The clause, MM-1, plain text](https://themeaningmotive.org/clause/mm-1.txt): one page that carries its reasons. CC0.
@@ -14,4 +14,13 @@
 - [The evidence room](https://themeaningmotive.org/evidence/): DOIs, pre-registration, corrections log, integrity machinery.
 - [The prediction ledger](https://themeaningmotive.org/evidence/predictions/): the bets this theory might lose, kept in public.
 - [Break this](https://themeaningmotive.org/red-team/): submit the strongest attack; the best are published with credit.
+- [The Research Tree](https://themeaningmotive.org/research/programme/): the whole programme on one page; eight branches, each with the result that would kill it.
+- [The Crossings](https://themeaningmotive.org/crossings/): superintelligence is not one crossing; intelligence, control and need can be crossed at different times.
+- [What would change our mind?](https://themeaningmotive.org/research/open-problems/): the public falsification register, discontinuity problem first.
+- [Human agency](https://themeaningmotive.org/human-agency/): welfare is not agency; the six-rung ladder and the Concierge (candidate failure form, not yet formal taxonomy).
+- [State of the Bridge](https://themeaningmotive.org/bridge/): the monitoring triangle, methods published before readings; UNKNOWN reported as a first-class state.
+- [The research neighbourhood](https://themeaningmotive.org/research/neighbourhood/): the work that supports us, threatens us, and preceded us, named honestly.
+- [Do some research](https://themeaningmotive.org/research/do-research/): the researcher front door; independent replications stay independent, nulls publishable.
+- [Press](https://themeaningmotive.org/press/): the quotable figures printed beside what the research does not show.
+- [Sitemap](https://themeaningmotive.org/sitemap/): every page, six doors.
 - [Colophon](https://themeaningmotive.org/colophon/): who pays, who decides, who signs.
